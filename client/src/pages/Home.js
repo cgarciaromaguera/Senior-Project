@@ -4,9 +4,9 @@ import axios from 'axios'
 import Stock from '../components/Stock'
 
 const Home = () => {
-    const [tickers, setTickers] = useState(null)
+    const [tickers, setTickers] = useState(null) // each ticker is a stock
 
-    useEffect(() => {
+    useEffect(() => { // api call here
         let t = []
         let next_url = ""
 
