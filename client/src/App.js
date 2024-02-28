@@ -2,19 +2,19 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 //import logo from './logo.png';
 
 //pages & components 
-import Login from './pages/Login'
-import Navbar from './components /Navbar';
+//import Login from './pages/Login';
+import Home from './pages/Home';
+//import Navbar from './components /Navbar';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
         <div className="pages">
           <Routes>
             <Route
               path="/"
-              element={<Login />}
+              element={<Home />}
             />
           </Routes>
         </div>
