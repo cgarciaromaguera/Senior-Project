@@ -1,0 +1,46 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Align elements vertically */
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #FFFFFF 0%, #D5EFD3 100%);
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.logo {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Add some space between logo and input fields */
+}
+
+.login h2 {
+    font-size: 2rem;
+    color: #333; /* Change color as needed */
+}
+
+.input-container {
+    width: 300px; /* Adjust width as needed */
+    margin-bottom: 20px; /* Add some space between input fields */
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    margin-bottom: 10px; /* Add some space between inputs */
+}
