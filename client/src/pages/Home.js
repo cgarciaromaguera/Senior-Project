@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './Home.css'; 
 import logo from './logo.png';
 
@@ -20,6 +21,18 @@ const stockData = [
     { name: "Google3", closingprice: "1500", percentchange: "1.8%" },
     { name: "Apple3", closingprice: "500", percentchange: "2.5%" },
     { name: "Google3", closingprice: "1500", percentchange: "1.8%" },
+    { name: "Apple10", closingprice: "500", percentchange: "2.5%" },
+    { name: "2nd page of stocks", closingprice: "1500", percentchange: "1.8%" },
+    { name: "Apple2", closingprice: "500", percentchange: "2.5%" },
+    { name: "Google2", closingprice: "1500", percentchange: "1.8%" },
+    { name: "Apple3", closingprice: "500", percentchange: "2.5%" },
+    { name: "Google3", closingprice: "1500", percentchange: "1.8%" },
+    { name: "Apple4", closingprice: "500", percentchange: "2.5%" },
+    { name: "Google4", closingprice: "1500", percentchange: "1.8%" },
+    { name: "Apple3", closingprice: "500", percentchange: "2.5%" },
+    { name: "Google3", closingprice: "1500", percentchange: "1.8%" },
+    { name: "Apple3", closingprice: "500", percentchange: "2.5%" },
+    { name: "Google3", closingprice: "1500", percentchange: "1.8%" },
     // Add more stock data as needed
   ];
   
@@ -31,6 +44,17 @@ const stockData = [
     </div>
   );
 const Home = () => {
+    const [currentPage, setCurrentPage] = useState(0);
+    const cardsPerPage = 12;
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const visibleStockData = stockData.slice(
+    currentPage * cardsPerPage,
+    (currentPage + 1) * cardsPerPage
+  );
     return (
          <div >
             <div className='header'>
@@ -53,13 +77,21 @@ const Home = () => {
             </form>
 
             {/* load in order of stocks with biggest percent change  10 per change only info needed is name, price, percent change */}
-            <div className="stock-cards-container">
-                {stockData.map((stock, index) => (
-                <StockCard key={index} stock={stock} />
-                ))}
+            <div className="stock-container">
+              {/* load in order of stocks with the biggest percent change (12 per page); info needed is name, price, percent change */}
+              {Array.from({ length: Math.ceil(visibleStockData.length / 6) }).map((_, rowIndex) => (
+                <div key={rowIndex} className="stock-cards-row">
+                  {visibleStockData.slice(rowIndex * 6, (rowIndex + 1) * 6).map((stock, index) => (
+                    <StockCard key={index} stock={stock} />
+                  ))}
+                </div>
+              ))}
+
+              {/* Arrow button to load the next group of stock cards */}
+              <button className="next-button" onClick={handleNextPage}>
+                Next Page
+              </button>
             </div>
-
-
 
         </div>
     )
