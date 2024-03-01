@@ -1,4 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+// import 'semantic-ui-css/semantic.min.css'
 //import logo from './logo.png';
 
 //pages & components 

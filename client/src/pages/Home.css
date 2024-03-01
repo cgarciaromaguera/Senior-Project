@@ -1,286 +1,183 @@
 
 .searchbar {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   position: absolute;
-  width: 1003px;
-  height: 39px;
+  /* width: 1003px; */
+  /* height: 39px; */
   left: 350px;
   top: 234px;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  backdrop-filter: blur(2px);
+  /* background: #FFFFFF; */
+  /* border: 1px solid #000000; */
+  /* backdrop-filter: blur(2px); */
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  position: absolute;
-  width: 200px;
-  height: 170px;
-  left: 5px;
+  /* position: absolute; */
+  width: 100px;
+  height: 100px;
+  margin-left: 1.5rem;
   top: 0px;
+}
+
+
+
+.home-header:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.mocktrade-header:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.learn-header:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.account:hover {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 /* Account */
 .account {
-    position: absolute;
-    width: 278px;
+    /* position: absolute; */
+    /* width: 278px;
     height: 37px;
     left: 1254px;
-    top: 32px;
+    top: 32px; */
+    margin-right: 3rem;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 20px;
     line-height: 58px;
     color: #000000;
   }
 
   .navigationBar {
-  position: absolute;
+  /* position: absolute;  */
   width: 1512px;
   height: 84px;
-  left: 0px;
-  top: 135px;
+  /* left: 0px; */
+  /* top: 135px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-start;
+  /* padding-top: 40px; */
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #D5EFD3 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
-  
-  /* Rectangle 2 */
-  .rectangle-2 {
-    position: absolute;
-    width: 1447px;
-    height: 347px;
-    left: 32px;
-    top: 278px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  /* Stock Graphs (API) */
-  .stock-graphs-api {
-    position: absolute;
-    width: 714px;
-    height: 215px;
-    left: calc(50% - 714px/2 + 145px);
-    top: 419px;
+
+  .home-header{
+    /* Home */
+    /* position: absolute;  */
+    /* width: 187px; */
+    /* height: 52px;  */
+    margin-left: 3rem; 
+    /* margin-top: 200px; */
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
-    line-height: 58px;
+    font-size: 24px;
+    /* line-height: 58px; */
+
     color: #000000;
+
   }
-  
-  /* Stock Graphs */
-  .stock-graphs {
-    position: absolute;
-    width: 714px;
-    height: 215px;
-    left: 398px;
-    top: 309px;
+  .mocktrade-header{
+    /* Home */
+    /* position: absolute;  */
+    /* width: 187px; */
+    /* height: 52px;  */
+    margin-left: 4rem;  
+    /* margin-top: 0px; */
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
-    line-height: 58px;
+    font-size: 24px;
+    /* line-height: 58px; */
+
     color: #000000;
+
   }
-  
-  /* Rectangle 3 */
-  .rectangle-3 {
-    position: absolute;
-    width: 1447px;
-    height: 293px;
-    left: 31px;
-    top: 644px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  /* Recent News */
-  .recent-news {
-    position: absolute;
-    width: 714px;
-    height: 215px;
-    left: 601px;
-    top: 735px;
+  .learn-header{
+    /* Home */
+    /* position: absolute; */
+    /* width: 187px; */
+    /* height: 52px; */
+    margin-left: 4rem;  
+    /* margin-top: 0px; */
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
-    line-height: 58px;
+    font-size: 24px;
+    /* line-height: 58px; */
+
     color: #000000;
+
+  }
+
+  label {
+    display: inline-block;
+    width: 150px; /* Adjust the width as needed */
+    /* text-align: right; */
+    margin-left: 30%;
+    margin-top: 1rem;
+  }
+
+  input {
+    width: 300px; /* Adjust the width as needed */
+    box-sizing: border-box;
+    /* margin-bottom: 10px; */
+  }
+
+  button {
+    display: inline-block;
+    margin-left: 1rem;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .stock-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   
-  /* Search For Stocks: */
-  .search-stocks {
-    position: absolute;
-    width: 341px;
-    height: 34px;
-    left: 51px;
-    top: 229px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 39px;
-    color: #000000;
+  .stock-card {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f6fbf6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
   }
   
-  /* iOS/Bottom Bar/5 Tabs */
-  .ios-bottom-bar {
-    position: absolute;
-    width: 312px;
-    height: 69px;
-    left: 610px;
-    top: 544px;
+  .stock-card:hover {
+    transform: scale(1.05);
   }
   
-  /* iPhone UI */
-  .iphone-ui {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0.72%;
-    bottom: 0.72%;
+  .stock-card h2 {
+    margin-bottom: 5px;
   }
   
-  /* Background */
-  .background {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0.5px;
-    bottom: 0.5px;
-    background: #FAFAFA;
+  .stock-card p {
+    margin: 0;
   }
   
-  /* Home Indicator */
-  .home-indicator {
-    position: absolute;
-    left: 28.21%;
-    right: 28.85%;
-    top: 78.99%;
-    bottom: 13.77%;
-  }
-  
-  /* Home Indicator */
-  .home-indicator-2 {
-    position: absolute;
-    width: 134px;
-    height: 5px;
-    left: calc(50% - 134px/2 - 1px);
-    bottom: 9.5px;
-    background: #000000;
-    border-radius: 100px;
-  }
-  
-  /* Tabs */
-  .tabs {
-    position: absolute;
-    width: 270px;
-    height: 32px;
-    left: 19px;
-    top: 15px;
-  }
-  
-  /* Rectangle 9 */
-  .rectangle-9 {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: calc(50% - 32px/2 - 121px);
-    top: 15px;
-    background: #686868;
-    border-radius: 100px;
-  }
-  
-  /* Rectangle 10 */
-  .rectangle-10 {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: calc(50% - 32px/2 - 61px);
-    top: 15px;
-    background: #E8E8E8;
-    border-radius: 100px;
-  }
-  
-  /* Rectangle 11 */
-  .rectangle-11 {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: calc(50% - 32px/2 - 2px);
-    top: 15px;
-    background: #E8E8E8;
-    border-radius: 100px;
-  }
-  
-  /* Rectangle 12 */
-  .rectangle-12 {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: calc(50% - 32px/2 + 57px);
-    top: 15px;
-    background: #E8E8E8;
-    border-radius: 100px;
-  }
-  
-  /* Rectangle 13 */
-  .rectangle-13 {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: calc(50% - 32px/2 + 117px);
-    top: 15px;
-    background: #E8E8E8;
-    border-radius: 100px;
-  }
-  
-  /* Top Divider */
-  .top-divider {
-    position: absolute;
-    height: 0.5px;
-    left: 0px;
-    right: 0px;
-    top: 0.5px;
-    background: #BDC5CD;
-    transform: matrix(1, 0, 0, -1, 0, 0);
-  }
-  
-  /* Rectangle 16 */
-  .rectangle-16 {
-    position: absolute;
-    width: 156px;
-    height: 19px;
-    left: 1286px;
-    top: 259px;
-    background: #FFFFFF;
-  }
-  
-  /* Ellipse 2 */
-  .ellipse-2 {
-    position: absolute;
-    width: 125px;
-    height: 124px;
-    left: 1330px;
-    top: 804px;
-    background: #D5EFD3;
-  }
-  
-  /* Chat */
-  .chat {
-    position: absolute;
-    width: 87px;
-    height: 30px;
-    left: 1353px;
-    top: 848px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 39px;
-    color: #000000;
-  }
   
