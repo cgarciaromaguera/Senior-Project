@@ -9,8 +9,8 @@ import logo from './logo.png';
 //     percentchange: "2.5%"
 // }
 const stockData = [
-    { name: "Apple", closingprice: "500", percentchange: "2.5%" },
-    { name: "Google", closingprice: "1500", percentchange: "1.8%" },
+    { name: "Apple", closingprice: "500", percentchange: "+2.5%" },
+    { name: "Google", closingprice: "1500", percentchange: "-1.8%" },
     { name: "Apple2", closingprice: "500", percentchange: "2.5%" },
     { name: "Google2", closingprice: "1500", percentchange: "1.8%" },
     { name: "Apple3", closingprice: "500", percentchange: "2.5%" },
@@ -36,19 +36,34 @@ const stockData = [
     // Add more stock data as needed
   ];
   
-  const StockCard = ({ stock }) => (
-    <div className="stock-card">
-      <h2>{stock.name}</h2>
-      <p>Closing Price: ${stock.closingprice}</p>
-      <p>Percent Change: {stock.percentchange}</p>
-    </div>
-  );
+  const StockCard = ({ stock }) => {
+    const { name, closingprice, percentchange } = stock;
+    const isNegative = percentchange.includes('-');
+    const percentChangeColor = isNegative ? 'negative' : 'positive';
+  
+    return (
+      <div className="stock-card">
+        <h2>{name}</h2>
+        <p>Closing Price: ${closingprice}</p>
+        <p>
+          Percent Change:{" "}
+          <span className={`percent-change ${percentChangeColor}`}>
+            {percentchange}
+          </span>
+        </p>
+      </div>
+    );
+  };
+
 const Home = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const cardsPerPage = 12;
 
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
+  };
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => Math.max(0, prevPage - 1));
   };
 
   const visibleStockData = stockData.slice(
@@ -88,8 +103,15 @@ const Home = () => {
               ))}
 
               {/* Arrow button to load the next group of stock cards */}
+              {currentPage > 0 && (
+                <button className="back-button" onClick={handlePrevPage}>
+                  Back
+                </button>
+              )}
+
+              {/* Arrow button to load the next group of stock cards */}
               <button className="next-button" onClick={handleNextPage}>
-                Next Page
+                Next
               </button>
             </div>
 

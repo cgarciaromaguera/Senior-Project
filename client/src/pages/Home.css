@@ -28,15 +28,14 @@
 
 
 .home-header:hover {
-  text-decoration: underline;
   font-weight: bold;
 }
 .mocktrade-header:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: bold;
 }
 .learn-header:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: bold;
 }
 .account:hover {
@@ -84,6 +83,7 @@
 
     font-family: 'Inter';
     font-style: normal;
+    text-decoration: underline;
     font-weight: 400;
     font-size: 24px;
     /* line-height: 58px; */
@@ -151,51 +151,91 @@
     cursor: pointer;
   }
 
-.stock-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+  .stock-container {
+    position: relative; /* Make the container a positioned parent for absolute positioning */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .stock-cards-row {
+    display: flex;
+    justify-content: space-between;
+    width: 99%; /* Ensure the row takes the full width */
+  }
+  
+  .next-button {
+    position: absolute; /* Position the button absolutely */
+    top: 100%; /* Align to the top of the container */
+    right: 2%; /* Align to the right of the container */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-.stock-cards-row {
-  display: flex;
-  justify-content: space-between;
-  width: 100%; /* Ensure the row takes the full width */
-}
+  .back-button {
+    position: absolute;
+    top: 100%; /* Align to the top of the container */
+    left: 0; /* Align to the left of the container */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* .stock-card {
+    width: calc(50% - 20px); /* 2 cards per row; adjust spacing as needed 
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f6fbf6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  } */
+  .stock-card {
+    width: calc(50% - 20px);
+    margin: 10px;
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid #000;
+    background-color: #f5f9f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  
+  .stock-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .stock-card h2 {
+    margin-bottom: 5px;
+  }
+  
+  .stock-card p {
+    margin: 0;
+  }
 
-.next-button {
-  margin-top: 10px;
-  margin-left: auto; /* Push the button to the right */
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.stock-card {
-  width: calc(50% - 20px); /* 2 cards per row; adjust spacing as needed */
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f6fbf6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.stock-card:hover {
-  transform: scale(1.05);
-}
-
-.stock-card h2 {
-  margin-bottom: 5px;
-}
-
-.stock-card p {
-  margin: 0;
-}
-
+  .stock-card .percent-change {
+    color: inherit; /* Inherit the text color from the parent (black by default) */
+  }
+  
+  /* Positive percent change */
+  .stock-card .percent-change.positive {
+    color: #00b606;
+  }
+  
+  /* Negative percent change */
+  .stock-card .percent-change.negative {
+    color: red;
+  }
   
   
   
