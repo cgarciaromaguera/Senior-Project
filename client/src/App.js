@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { Component } from 'react';
 import { useAuthContext } from './hooks/useAuthContext';
+import MockTrading from './pages/MockTrading';
 
 function App() {
   const { user } = useAuthContext()
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" element={!user ? <SignUp /> : <Navigate to="/" />} />
+            <Route path="/mock-trading" element={<MockTrading />} />
           </Routes>
       </BrowserRouter>  
     </div>
