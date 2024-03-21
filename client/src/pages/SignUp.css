@@ -1,0 +1,87 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #FFFFFF 0%, #D5EFD3 100%);
+    overflow: hidden;
+  }
+  
+  .signup {
+    width: 350px; /* Container width */
+    padding: 20px 50px; /* Adjusted padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .signup h2 {
+    font-size: 2rem; /* Title font size */
+    color: #333;
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
+  /* Style for the labels/text above the input fields if you add them */
+  .label {
+    align-self: flex-start;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .input-container-signup {
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+    margin-bottom: 10px; /* Reduced space between the input fields */
+  }
+  
+  .input-container-signup input {
+    width: 100%; /* Full width of the parent container */
+    padding: 10px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px; /* Slightly rounded borders for the input fields */
+    font-size: 1rem;
+  }
+  
+  .signup-button {
+    width: calc(100% - 20px); /* Adjust width to account for padding, making it consistent with input fields */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #797777; /* Adjust the button color to match your design */
+    color: white;
+    cursor: pointer; /* Change cursor to pointer on hover over the button */
+    font-size: 1rem;
+    margin-top: 20px; /* Adjusted space above the button */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add a shadow to the button */
+  }
+  
+  .signup-button:hover {
+    background-color: #45a049; /* Darker shade for hover effect */
+  }
+  
+  .signup-footer {
+    text-align: center;
+    width: 100%; /* Full width */
+    margin-top: 20px; /* Space above the footer links */
+  }
+  
+  .signup-footer a {
+    text-decoration: none;
+    color: #1eb32b; /* Adjust the link color to match your design */
+    font-size: 0.9rem;
+    font-weight: bold; /* Make the link bold */
+  }
+  
+  /* If you add subtitle like "Create Your Account", use this */
+  .subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px; /* Space below the subtitle */
+  }
+  

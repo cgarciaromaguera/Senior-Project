@@ -26,17 +26,20 @@ const userSchema = new Schema
         },
 }, {timestamps: true});
 
-// statis signup method
+// static signup method
 userSchema.statics.signup = async function(username, email, password) {
         if (!email || !password) {
+                console.log("All fields must be filled")
                 throw Error('All fields must be filled')
         }
         else if (!validator.isEmail(email)) {
+                console.log('Email is not valid')
                 throw Error('Email is not valid')
         }
-        else if (!validator.isStrongPassword(password)) {
-                throw Error('Password not strong enough')
-        }
+        // else if (!validator.isStrongPassword(password)) {
+        //         console.log('Password not strong enough')
+        //         throw Error('Password not strong enough')
+        // }
 
         const emailExists = await this.findOne({ email })
         const usernameExists = await this.findOne({ username })
