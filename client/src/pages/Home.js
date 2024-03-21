@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css'; 
 import logo from './logo.png';
+import { Link } from 'react-router-dom';
 
 
 // data = {
@@ -80,8 +81,14 @@ const Home = () => {
 
             
             <div className="navigationBar">
+                <Link to = "/" > 
                 <h1 className='home-header'>Home</h1>
-                <h1 className='mocktrade-header'>Your Stocks</h1>
+                </Link>
+                {/* <h1 className='home-header'>Home</h1> */}
+                <Link to = "/mock-trading" style={{ textDecoration: 'none' }}>                
+                  <h1 className='mocktrade-header'>Your Stocks</h1>
+                </Link>
+                {/* <h1 className='mocktrade-header'>Your Stocks</h1> */}
                 <h1 className='learn-header'>Learn</h1>
             </div>
 

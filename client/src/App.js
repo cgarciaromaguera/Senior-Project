@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 //pages & components 
 //import Login from './pages/Login';
 import Home from './pages/Home';
+import MockTrading from './pages/mockTrading';
 //import Navbar from './components /Navbar';
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
             <Route
               path="/"
               element={<Home />}
+            />
+            <Route
+              path="/mock-trading"
+              element={<MockTrading />}
             />
           </Routes>
         </div>
