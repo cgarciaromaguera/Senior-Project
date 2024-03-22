@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react"
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // const Home = () => {
 //     const [tickers, setTickers] = useState([]) // each ticker is a stock
@@ -141,8 +142,12 @@ class Home extends React.Component {
           </div>
 
           <div className="navigationBar">
-              <h1 className='home-header'>Home</h1>
-              <h1 className='mocktrade-header'>Your Stocks</h1>
+            <Link to="/">
+                <h1 className='home-header'>Home</h1>
+            </Link>
+            <Link to="/mock-trading"style={{ textDecoration: 'none' }}>
+                <h1 className='mocktrade-header'>Your Stocks</h1>
+            </Link>
               <h1 className='learn-header'>Learn</h1>
           </div>
 
