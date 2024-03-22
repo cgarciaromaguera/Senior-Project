@@ -13,10 +13,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
           <Routes>
-          <Route
-              path="/"
-              element={<SignUp />}/>
-            {/* <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} /> */}
+            <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" element={!user ? <SignUp /> : <Navigate to="/" />} />
             <Route path="/mock-trading" element={<MockTrading />} />

@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <div className='wrapper'>
       <div className="login">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logo1" />
         <div className="input-container">
           <input type="text" placeholder="Username" />
         </div>
