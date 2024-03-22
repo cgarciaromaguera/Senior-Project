@@ -5,17 +5,18 @@ body, html {
     font-family: 'Arial', sans-serif; /* Use the font that matches your design */
   }
   
-  body {
+  .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
     background: linear-gradient(180deg, #FFFFFF 0%, #D5EFD3 100%);
     overflow: hidden;
   }
   
   .login {
-    width: 350px; /* Container width */
-    padding: 20px 50px; /* Adjusted padding */
+    width: 350px; 
+    padding: 20px 50px; 
     display: flex;
     flex-direction: column;
     align-items: center;

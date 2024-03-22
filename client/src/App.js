@@ -2,12 +2,13 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 //import logo from './logo.png';
 
 //pages & components 
-import Login from './pages/Login';
-import Navbar from './components /Navbar';
+//import Login from './pages/Login';
+//import Navbar from './components /Navbar';
 import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+//import { BrowserRouter, Routes, Route } from 'react-router-dom'
+//import Home from './pages/Home'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<SignUp />}
+              element={<Login />}
             />
           </Routes>
         </div>

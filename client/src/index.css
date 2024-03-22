@@ -12,3 +12,14 @@ code {
     monospace;
 }
 
+#root{
+  height: 100%;
+}
+
+.App{
+  height:100%
+}
+.pages{
+  height:100%;
+}
+
