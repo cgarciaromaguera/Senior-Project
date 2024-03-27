@@ -18,13 +18,11 @@ export const useSignup= () => {
     })
       .then((res) => {
         if (res.data.success) {
-            console.log("setting in local storage")
             localStorage.setItem('user', JSON.stringify(res.data))
             dispatch({type: 'LOGIN', payload: res.data})
             setIsLoading(false)
         }
         if (!res.data.success) {
-            console.log("not success")
             setIsLoading(false)
             setError(res.error)
         }

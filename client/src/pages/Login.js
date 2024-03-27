@@ -11,29 +11,30 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    console.log("before login hook")
     await login(username, password)
+    console.log(error)
   }
 
   return (
-    <form>
+      <div className='wrapper'>
+      <form onSubmit={handleSubmit}>
       <div className="login">
-        <img src={logo} alt="Logo" className="logo-login" />
-        <div className="input-container-login">
-          <input type="text" placeholder="Username" onChange={(e) => {setUsername(e.target.value)}}/>
+        <img src={logo} alt="Logo" className="logo1" />
+        <div className="input-container">
+          <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
         </div>
-        <div className="input-container-login">
-          <input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
+        <div className="input-container">
+          <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button className="login-button" onSubmit={handleSubmit}>Login</button> {/* Login button */}
+        {error && <div>{error}</div>}
+        <button className="login-button">Login</button> {/* Login button */}
         <div className="login-footer">
           <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
           <a href="/signup" className="sign-up">Don't have an account? Sign Up</a>
         </div>
-        
       </div>
-    </form>
+      </form>
+    </div>
   )
 }  
 

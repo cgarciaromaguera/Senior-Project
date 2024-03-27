@@ -47,197 +47,194 @@
 
 /* Account */
 .account {
-    /* position: absolute; */
-    /* width: 278px;
-    height: 37px;
-    left: 1254px;
-    top: 32px; */
-    margin-right: 3rem;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 58px;
-    color: #000000;
-  }
+  /* position: absolute; */
+  /* width: 278px;
+  height: 37px;
+  left: 1254px;
+  top: 32px; */
+  margin-right: 3rem;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 58px;
+  color: #000000;
+}
 
-  .navigationBar {
+.navigationBar {
+/* position: absolute;  */
+
+height: 50px;
+/* left: 0px; */
+/* top: 135px; */
+display: flex;
+align-items: center;
+justify-content: space-start;
+/* padding-top: 40px; */
+background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #D5EFD3 100%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.home-header{
+  /* Home */
   /* position: absolute;  */
-  width: 100%;
-  height: 84px;
-  /* left: 0px; */
-  /* top: 135px; */
+  /* width: 187px; */
+  /* height: 52px;  */
+  margin-left: 3rem; 
+  /* margin-top: 200px; */
+
+  font-family: 'Inter';
+  font-style: normal;
+  text-decoration: underline;
+  font-weight: 400;
+  font-size: 24px;
+  /* line-height: 58px; */
+
+  color: #000000;
+
+}
+.mocktrade-header{
+  /* Home */
+  /* position: absolute;  */
+  /* width: 187px; */
+  /* height: 52px;  */
+  margin-left: 4rem;  
+  /* margin-top: 0px; */
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  /* line-height: 58px; */
+
+  color: #000000;
+
+}
+.learn-header{
+  /* Home */
+  /* position: absolute; */
+  /* width: 187px; */
+  /* height: 52px; */
+  margin-left: 4rem;  
+  /* margin-top: 0px; */
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  /* line-height: 58px; */
+
+  color: #000000;
+
+}
+
+label {
+  display: inline-block;
+  width: 150px; /* Adjust the width as needed */
+  /* text-align: right; */
+  margin-left: 30%;
+  margin-top: 1rem;
+}
+
+input {
+  width: 300px; /* Adjust the width as needed */
+  box-sizing: border-box;
+  /* margin-bottom: 10px; */
+}
+
+button {
+  display: inline-block;
+  margin-left: 1rem;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.stock-container {
+  position: relative; /* Make the container a positioned parent for absolute positioning */
   display: flex;
-  align-items: center;
-  justify-content: space-start;
-  /* padding-top: 40px; */
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #D5EFD3 100%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  .home-header{
-    /* Home */
-    /* position: absolute;  */
-    /* width: 187px; */
-    /* height: 52px;  */
-    margin-left: 3rem; 
-    /* margin-top: 200px; */
+.stock-cards-row {
+  display: flex;
+  justify-content: space-between;
+  width: 99%; /* Ensure the row takes the full width */
+}
 
-    font-family: 'Inter';
-    font-style: normal;
-    text-decoration: underline;
-    font-weight: 400;
-    font-size: 24px;
-    /* line-height: 58px; */
+.next-button {
+  position: absolute; /* Position the button absolutely */
+  top: 100%; /* Align to the top of the container */
+  right: 2%; /* Align to the right of the container */
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    color: #000000;
+.back-button {
+  position: absolute;
+  top: 100%; /* Align to the top of the container */
+  left: 0; /* Align to the left of the container */
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  }
-  .mocktrade-header{
-    /* Home */
-    /* position: absolute;  */
-    /* width: 187px; */
-    /* height: 52px;  */
-    margin-left: 4rem;  
-    /* margin-top: 0px; */
+/* .stock-card {
+  width: calc(50% - 20px); /* 2 cards per row; adjust spacing as needed 
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f6fbf6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+} */
+.stock-card {
+  width: calc(50% - 20px);
+  margin: 10px;
+  border-radius: 8px;
+  padding: 5px;
+  border: 1px solid #000;
+  background-color: #f5f9f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    /* line-height: 58px; */
 
-    color: #000000;
+.stock-card:hover {
+  transform: scale(1.05);
+}
 
-  }
-  .learn-header{
-    /* Home */
-    /* position: absolute; */
-    /* width: 187px; */
-    /* height: 52px; */
-    margin-left: 4rem;  
-    /* margin-top: 0px; */
+.stock-card h2 {
+  margin-bottom: 5px;
+}
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    /* line-height: 58px; */
+.stock-card p {
+  margin: 0;
+}
 
-    color: #000000;
+.stock-card .percent-change {
+  color: inherit; /* Inherit the text color from the parent (black by default) */
+}
 
-  }
+/* Positive percent change */
+.stock-card .percent-change.positive {
+  color: #00b606;
+}
 
-  label {
-    display: inline-block;
-    width: 150px; /* Adjust the width as needed */
-    /* text-align: right; */
-    margin-left: 30%;
-    margin-top: 1rem;
-  }
-
-  input {
-    width: 300px; /* Adjust the width as needed */
-    box-sizing: border-box;
-    /* margin-bottom: 10px; */
-  }
-
-  button {
-    display: inline-block;
-    margin-left: 1rem;
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .stock-container {
-    position: relative; /* Make the container a positioned parent for absolute positioning */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .stock-cards-row {
-    display: flex;
-    justify-content: space-between;
-    width: 99%; /* Ensure the row takes the full width */
-  }
-  
-  .next-button {
-    position: absolute; /* Position the button absolutely */
-    top: 100%; /* Align to the top of the container */
-    right: 2%; /* Align to the right of the container */
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .back-button {
-    position: absolute;
-    top: 100%; /* Align to the top of the container */
-    left: 0; /* Align to the left of the container */
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /* .stock-card {
-    width: calc(50% - 20px); /* 2 cards per row; adjust spacing as needed 
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f6fbf6;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  } */
-  .stock-card {
-    width: calc(50% - 20px);
-    margin: 10px;
-    border-radius: 8px;
-    padding: 5px;
-    border: 1px solid #000;
-    background-color: #f5f9f5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  
-  .stock-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .stock-card h2 {
-    margin-bottom: 5px;
-  }
-  
-  .stock-card p {
-    margin: 0;
-  }
-
-  .stock-card .percent-change {
-    color: inherit; /* Inherit the text color from the parent (black by default) */
-  }
-  
-  /* Positive percent change */
-  .stock-card .percent-change.positive {
-    color: #00b606;
-  }
-  
-  /* Negative percent change */
-  .stock-card .percent-change.negative {
-    color: red;
-  }
-  
-  
-  
+/* Negative percent change */
+.stock-card .percent-change.negative {
+  color: red;
+}

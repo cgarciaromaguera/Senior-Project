@@ -1,102 +1,102 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Arial', sans-serif; /* Use the font that matches your design */
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, #FFFFFF 0%, #D5EFD3 100%);
-    overflow: hidden;
-  }
-  
-  .login {
-    width: 350px; /* Container width */
-    padding: 20px 50px; /* Adjusted padding */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .logo-login {
-    max-width: 150%; /* Make sure the logo is not larger than the container */
-    margin-top: -100px; /* Negative margin to move up towards the top of the container */
-    margin-bottom: -100px; /* Space below the logo */
-  }
-  
-  .login h2 {
-    font-size: 1.5rem; /* Adjust the size as needed */
-    color: #333;
-    margin-bottom: 30px;
-  }
-  
-  .input-container-login{
-    width: 100%; /* Full width of the login container */
-    margin-bottom: 10px; /* Space between the input fields */
-  }
-  
-  .input-container-login input {
-    width: 100%; /* Full width of the container */
-    padding: 10px;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px; /* Slightly rounded borders for the input fields */
-    font-size: 1rem;
-  }
-  
-  /* Styles for login button, if present */
-  .button-container button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50; /* Adjust the button color to match your design */
-    color: white;
-    font-size: 1rem;
-    margin-bottom: 20px; /* Space below the button */
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif; /* Use the font that matches your design */
+}
 
-  .input-container input,
-.login-button { /* Apply similar styles to inputs and button */
-  width: 100%;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #D5EFD3 100%);
+  overflow: hidden;
+}
+
+.login {
+  width: 350px; 
+  padding: 20px 50px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo1 {
+  max-width: 150%; /* Make sure the logo is not larger than the container */
+  margin-top: -100px; /* Negative margin to move up towards the top of the container */
+  margin-bottom: -100px; /* Space below the logo */
+}
+
+.login h2 {
+  font-size: 1.5rem; /* Adjust the size as needed */
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.input-container {
+  width: 100%; /* Full width of the login container */
+  margin-bottom: 10px; /* Space between the input fields */
+}
+
+.input-container input {
+  width: 100%; /* Full width of the container */
   padding: 10px;
   border: 1px solid #ccc; /* Light grey border */
-  border-radius: 5px; /* Slightly rounded borders */
+  border-radius: 5px; /* Slightly rounded borders for the input fields */
   font-size: 1rem;
-  margin-bottom: 10px; /* Space between the input fields and the button */
+}
+
+/* Styles for login button, if present */
+.button-container button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50; /* Adjust the button color to match your design */
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 20px; /* Space below the button */
+}
+
+.input-container input,
+.login-button { /* Apply similar styles to inputs and button */
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc; /* Light grey border */
+border-radius: 5px; /* Slightly rounded borders */
+font-size: 1rem;
+margin-bottom: 10px; /* Space between the input fields and the button */
 }
 
 .login-button {
-  background-color: #797777; /* Adjust the button color to match your design */
-  color: white;
-  cursor: pointer; /* Change cursor to pointer on hover over the button */
-  border: none; /* Remove border for the button */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add a shadow to the button */
-  margin-top: 20px;
+background-color: #797777; /* Adjust the button color to match your design */
+color: white;
+cursor: pointer; /* Change cursor to pointer on hover over the button */
+border: none; /* Remove border for the button */
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add a shadow to the button */
+margin-top: 20px;
 }
 
 .login-button:hover {
-  background-color: #45a049; /* Darker shade for hover effect */
+background-color: #45a049; /* Darker shade for hover effect */
 }
-  
-  .login-footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .login-footer a {
-    text-decoration: none;
-    color: #1eb32b; /* Adjust the link color to match your design */
-    font-size: 0.9rem;
-    margin: 5px 0; /* Space between the links */
-  }
-  
-  .sign-up {
-    font-weight: bold;
-  }
-  
+
+.login-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login-footer a {
+  text-decoration: none;
+  color: #1eb32b; /* Adjust the link color to match your design */
+  font-size: 0.9rem;
+  margin: 5px 0; /* Space between the links */
+}
+
+.sign-up {
+  font-weight: bold;
+}

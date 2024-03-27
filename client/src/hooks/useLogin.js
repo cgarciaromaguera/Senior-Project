@@ -8,26 +8,24 @@ export const useLogin = () => {
   const { dispatch } = useAuthContext()
 
   const login = async (username, password) => {
-    console.log("LOGIN")
     setIsLoading(true)
     setError(null)
 
-    console.log("here")
+    console.log(username, password)
 
     await axios.post('http://localhost:5000/api/user/login', {
       username: username,
       password: password 
     })
       .then((res) => {
-        console.log(res.data.success)
         if (res.data.success) {
-            localStorage.setItem('user', JSON.stringify(res.data))
-            dispatch({type: 'LOGIN', payload: res.data})
-            setIsLoading(false)
+          localStorage.setItem('user', JSON.stringify(res.data))
+          dispatch({type: 'LOGIN', payload: res.data})
+          setIsLoading(false)
         }
         if (!res.data.success) {
           setIsLoading(false)
-          setError(res.error)
+          setError(res.data.error)
         }
       })
       .catch((error) => {
