@@ -1,0 +1,155 @@
+.searchbar {
+    /* box-sizing: border-box; */
+    position: absolute;
+    /* width: 1003px; */
+    /* height: 39px; */
+    left: 350px;
+    top: 234px;
+    /* background: #FFFFFF; */
+    /* border: 1px solid #000000; */
+    /* backdrop-filter: blur(2px); */
+  }
+  
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    /* position: absolute; */
+    width: 100px;
+    height: 100px;
+    margin-left: 1.5rem;
+    top: 0px;
+  }
+  
+  
+  
+  .home-header:hover {
+    font-weight: bold;
+  }
+  .mocktrade-header:hover {
+    /* text-decoration: underline; */
+    font-weight: bold;
+  }
+  .learn-header:hover {
+    /* text-decoration: underline; */
+    font-weight: bold;
+  }
+  .account:hover {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  /* Account */
+  .account {
+      /* position: absolute; */
+      /* width: 278px;
+      height: 37px;
+      left: 1254px;
+      top: 32px; */
+      margin-right: 3rem;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 58px;
+      color: #000000;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        /* flex-direction: column; */
+        height: calc(100vh - 100px); /* Adjusted height to provide more space */
+        margin-top: 20px; /* Added margin-top to create space between the navigation bar and the container */
+        /* max-width: 50%;  */
+        /* margin-left: auto;  */
+        margin-right: auto; /* Align the container to the left */
+        /* Add any additional styling you want for the container */
+    }
+    .currentStockContainer {
+        margin-left: 15px;
+        width: 48%;
+        height: 100%;
+    }
+    .rightside {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+        height: 100%;
+    }
+    
+    .balanceBox {
+        margin-bottom: 10px;
+        height: 250px; 
+    }
+    
+    .watchingBox {
+        height: 500px; 
+    }
+    /* Adjusted styles for the navigation bar */
+    .navigationBar {
+        width: 100%;
+        height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-start;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #D5EFD3 100%);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    } 
+    
+  
+    .home-header{
+      /* Home */
+      /* position: absolute;  */
+      /* width: 187px; */
+      /* height: 52px;  */
+      margin-left: 3rem; 
+      /* margin-top: 200px; */
+
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      /* line-height: 58px; */
+  
+      color: #000000;
+  
+    }
+    .mocktrade-header{
+      /* Home */
+      /* position: absolute;  */
+      /* width: 187px; */
+      /* height: 52px;  */
+      margin-left: 4rem;  
+      /* margin-top: 0px; */
+  
+      font-family: 'Inter';
+      font-style: normal;
+      /* text-decoration: underline; */
+      font-weight: 400;
+      font-size: 24px;
+      /* line-height: 58px; */
+  
+      color: #000000;
+  
+    }
+    .learn-header{
+      /* Home */
+      /* position: absolute; */
+      /* width: 187px; */
+      /* height: 52px; */
+      margin-left: 4rem;  
+      /* margin-top: 0px; */
+  
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      /* line-height: 58px; */
+  
+      color: #000000;
+  
+    }

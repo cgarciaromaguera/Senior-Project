@@ -1,27 +1,24 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-//import logo from './logo.png';
-
-//pages & components 
-import Login from './pages/Login';
-import Navbar from './components /Navbar';
-import SignUp from './pages/SignUp';
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import { Component } from 'react';
+import { useAuthContext } from './hooks/useAuthContext';
+import MockTrading from './pages/MockTrading';
 
 function App() {
+  const { user } = useAuthContext()
+
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="pages">
           <Routes>
-            <Route
-              path="/"
-              element={<SignUp />}
-            />
+            <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+            <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+            <Route path="/signup" element={!user ? <SignUp /> : <Navigate to="/" />} />
+            <Route path="/mock-trading" element={<MockTrading />} />
           </Routes>
-        </div>
-      </BrowserRouter>
+      </BrowserRouter>  
     </div>
   );
 }
