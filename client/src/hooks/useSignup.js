@@ -11,7 +11,7 @@ export const useSignup= () => {
     setIsLoading(true)
     setError(null)
 
-    await axios.post('http://localhost:5000/api/user/signup', {
+    await axios.post('/api/user/signup', {
       username: username,
       email: email,
       password: password 

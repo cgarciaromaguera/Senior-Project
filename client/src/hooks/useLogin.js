@@ -13,7 +13,7 @@ export const useLogin = () => {
 
     console.log(username, password)
 
-    await axios.post('http://localhost:5000/api/user/login', {
+    await axios.post('/api/user/login', {
       username: username,
       password: password 
     })
