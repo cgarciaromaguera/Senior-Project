@@ -23,6 +23,15 @@
     margin-left: 1.5rem;
     top: 0px;
   }
+
+  .profilePic {
+    width: 250px; /* Adjust width and height as needed */
+    height: 250px;
+    border-radius: 50%; /* Apply border-radius to create a circular shape */
+    object-fit: cover;
+    margin-top: 35px;
+    margin-left: 350px;
+  }
   
   
   
@@ -69,26 +78,32 @@
         margin-right: auto; /* Align the container to the left */
         /* Add any additional styling you want for the container */
     }
-    .currentStockContainer {
-        margin-left: 15px;
-        width: 48%;
-        height: 100%;
+    .profileContainer {
+        display: flex;
+        justify-content: flex-start; /* Align content to the left */
+        margin-right: 20px; /* Adjust margin as needed */
+        width: calc(100% - 20px); /* Adjusted width to account for margin */
     }
-    .rightside {
+    .infoBox {
+        margin-left: 370px; 
+        margin-top: 30px;
+    }
+    
+    .accountBox {
+        margin-bottom: 10px;
+        margin-top: 100px;
+        height: 300px; 
+        text-decoration: underline;
+    }
+    .accountInfo {
         display: flex;
         flex-direction: column;
-        width: 48%;
-        height: 100%;
+        width: 50%; /* Adjusted width to take half of the profile container */
+        margin-left: 130px; /* Added margin to separate from profile pic */
     }
     
-    .balanceBox {
-        margin-bottom: 10px;
-        height: 250px; 
-    }
     
-    .watchingBox {
-        height: 500px; 
-    }
+
     /* Adjusted styles for the navigation bar */
     .navigationBar {
         width: 100%;
