@@ -77,7 +77,9 @@ class Home extends React.Component {
         <div className='home'>
           <div className='header'>
             <img src={logo} alt="Logo" className="logo-home" /> {/* Include the logo */} 
-            <h10 className="account"> Account </h10>
+            <Link to="/account"style={{ textDecoration: 'none' }}>
+              <h10 className="account"> Account </h10>
+            </Link>
           </div>
 
           <div className="navigationBar">
