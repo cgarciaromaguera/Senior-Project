@@ -9,13 +9,15 @@ const Account = () => {
         <div>
             <div className='header'>
                 <img src={logo} alt="Logo" className="logo" />
+                <Link to="/account" style={{color: "black"}}>
                 <h10 className="account"> Account </h10>
+                </Link>
             </div>
             <div className="navigationBar">
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <h1 className='home-header'>Home</h1>
                 </Link>
-                <Link to="/mock-trading">
+                <Link to="/mock-trading" style={{ textDecoration: 'none' }}>
                     <h1 className='mocktrade-header'>Your Stocks</h1>
                 </Link>
                 <h1 className='learn-header'>Learn</h1>

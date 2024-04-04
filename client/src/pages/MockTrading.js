@@ -16,7 +16,7 @@ const MockTrading = () => {
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <h1 className='home-header'>Home</h1>
                 </Link>
-                <Link to="/mock-trading">
+                <Link to="/mock-trading" style={{color: "black"}}>
                     <h1 className='mocktrade-header'>Your Stocks</h1>
                 </Link>
                 <h1 className='learn-header'>Learn</h1>

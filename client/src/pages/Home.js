@@ -83,7 +83,7 @@ class Home extends React.Component {
           </div>
 
           <div className="navigationBar">
-            <Link to="/">
+            <Link to="/" style={{color: "black"}}>
               <h1 className='home-header'>Home</h1>
             </Link>
             <Link to="/mock-trading"style={{ textDecoration: 'none' }}>
