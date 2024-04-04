@@ -41,7 +41,7 @@
   font-weight: bold;
 }
 .account:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: bold;
 }
 

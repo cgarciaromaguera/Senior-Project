@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MockTrading.css';
-import logo from './logo.png';
+import logo from './logo2.png';
 
 const MockTrading = () => {
     return (
@@ -14,10 +14,13 @@ const MockTrading = () => {
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <h1 className='home-header'>Home</h1>
                 </Link>
-                <Link to="/mock-trading">
+                <Link to="/mock-trading" style={{color:"black"}}>
                     <h1 className='mocktrade-header'>Your Stocks</h1>
                 </Link>
+                <Link to="/learn"style={{ textDecoration: 'none' }}>
                 <h1 className='learn-header'>Learn</h1>
+                </Link>
+
             </div>
             <div className='container'>
                 <div className='currentStockContainer'>

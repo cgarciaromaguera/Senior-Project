@@ -2,7 +2,7 @@ import React from "react"
 import axios from 'axios'
 import InfiniteScroll from "react-infinite-scroll-component";
 import Stock from '../components/Stock'
-import logo from './logo.png';
+import logo from './logo2.png';
 import './Home.css'
 import { Link } from 'react-router-dom'
 
@@ -81,13 +81,15 @@ class Home extends React.Component {
           </div>
 
           <div className="navigationBar">
-            <Link to="/">
+            <Link to="/" style={{color:"black"}}>
               <h1 className='home-header'>Home</h1>
             </Link>
             <Link to="/mock-trading"style={{ textDecoration: 'none' }}>
               <h1 className='mocktrade-header'>Your Stocks</h1>
             </Link>
+            <Link to="/learn"style={{ textDecoration: 'none' }}>
               <h1 className='learn-header'>Learn</h1>
+            </Link>
           </div>
 
           <form >
