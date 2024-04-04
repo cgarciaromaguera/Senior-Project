@@ -1,0 +1,151 @@
+/* LearnTab.css */
+.learn {
+    display: block;
+    margin: 8px;
+  }
+  
+  .searchbar {
+    position: absolute;
+    left: 350px; /* You may need to adjust this based on your layout */
+    top: 234px; /* You may need to adjust this based on your layout */
+    /* Additional styling here */
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo-home {
+    width: 100px;
+    height: 100px;
+    margin-left: 1.5rem;
+  }
+  
+  /* Add hover effect for all header links */
+  .home-header:hover {
+    font-weight: bold;
+  }
+  .mocktrade-header:hover {
+    /* text-decoration: underline; */
+    font-weight: bold;
+  }
+  .learn-header:hover {
+    /* text-decoration: underline; */
+    font-weight: bold;
+  }
+  .account:hover {
+    /* text-decoration: underline; */
+    font-weight: bold;
+  }
+  
+  /* Style for the Account section in the header */
+  .account {
+    margin-right: 3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 58px;
+    color: #000000;
+  }
+  
+  /* Navigation bar styling */
+  .navigationBar {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-start;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #D5EFD3 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Style for individual navigation links */
+  .nav-link {
+    margin-left: 3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+  }
+  
+  /* Underline the active nav-link, this should be applied to the current active tab */
+  .nav-link.active {
+    text-decoration: underline;
+  }
+  
+  /* Additional styles for animations, interactions or specific adjustments can be added here */
+  .learn-content-slider {
+    width: 80%; /* Adjust the width as needed */
+    margin: 2rem auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    padding: 20px; /* Space inside the slider */
+    background-color: white; /* Background color for the slider */
+    border-radius: 8px; /* Rounded corners */
+    position: relative;
+  }
+
+  .slick-slider {
+    margin: 0 auto;
+  }
+  
+  .slick-list {
+    overflow: visible; /* Make dots visible when they are outside the slick-list */
+  }
+  
+  .slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content */
+    text-align: center; /* Center the text */
+    padding: 2rem;
+    height: 150px; /* Adjust the height as needed (was auto)*/
+  }
+  
+  /* Styling for dots provided by react-slick */
+  .slick-dots {
+    position: absolute;
+    bottom: -20px; /* Adjust this value to position the dots */
+    left: 0;
+    right: 0;
+    width: auto;
+    transform: translateX(-50); /* Center the dots container */
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    width:100%
+  }
+  
+  .slick-dots li button:before {
+    font-size: 12px; /* Size of the dots */
+    color: rgba(0, 0, 0, 0.75); /* Color of the dots */
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: black; /* Color of the active dot */
+  }
+  
+  .slide h2 {
+    margin: 0.5em 0; /* Space above and below the title */
+  }
+  
+  .slide p {
+    margin: 1.5em 0; /* Space above and below the paragraph */
+  }
+  
+  .slide a {
+    background-color: #4CAF50; /* Color for your link/button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none; /* Remove underline from links */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    width: fit-content;
+  }
+  
+  .slide a:hover {
+    background-color: #367c39; /* Darker shade on hover */
+  }
