@@ -107,7 +107,7 @@ class Home extends React.Component {
                 hasMore={true}
                 loader={<h1>Loading...</h1>}
                 height={600}>
-                  <div style={{display: 'grid', gridTemplateColumns: 'auto auto auto auto'}}>
+                  <div className="stock-grid"style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill)'}}>
                     {this.state.stocks.map((row) => {
                       return (
                         <div>
