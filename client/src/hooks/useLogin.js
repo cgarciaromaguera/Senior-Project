@@ -11,8 +11,6 @@ export const useLogin = () => {
     setIsLoading(true)
     setError(null)
 
-    console.log(username, password)
-
     await axios.post('/api/user/login', {
       username: username,
       password: password 
@@ -23,13 +21,10 @@ export const useLogin = () => {
           dispatch({type: 'LOGIN', payload: res.data})
           setIsLoading(false)
         }
-        if (!res.data.success) {
-          setIsLoading(false)
-          setError(res.data.error)
-        }
       })
-      .catch((error) => {
-        console.log(error)
+      .catch((err) => {
+        setIsLoading(false)
+        setError(err.response.data.error)
       })
   }
 

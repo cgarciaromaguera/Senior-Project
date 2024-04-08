@@ -26,7 +26,7 @@ const Login = () => {
         <div className="input-container">
           <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
         </div>
-        {error && <div>{error}</div>}
+        {error && <p style={{color:"red"}}>{error}</p>}
         <button className="login-button">Login</button> {/* Login button */}
         <div className="login-footer">
           <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
