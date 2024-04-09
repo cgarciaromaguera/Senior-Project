@@ -5,7 +5,7 @@ import logo from './logo2.png';
 
 const MockTrading = () => {
     return (
-        <div>
+        <div className='mocktrading'>
             <div className='header'>
                 <img src={logo} alt="Logo" className="logo" />
                 <Link to="/account" style={{ textDecoration: 'none' }}>

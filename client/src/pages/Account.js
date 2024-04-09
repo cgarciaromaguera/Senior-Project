@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Account.css';
-import logo from './logo.png';
+import logo from './logo2.png';
 import profilePic from './exProfilePic.png';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useLogout } from '../hooks/useLogout';
@@ -15,7 +15,7 @@ const Account = () => {
     }
 
     return (
-        <div>
+        <div className='accountdisplay'>
             <div className='header'>
                 <img src={logo} alt="Logo" className="logo" />
                 <Link to="/account" style={{color: "black"}}>

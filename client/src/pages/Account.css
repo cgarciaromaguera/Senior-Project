@@ -1,3 +1,7 @@
+.accountdisplay {
+    display: block;
+    margin: 8px;
+  }
 .searchbar {
     /* box-sizing: border-box; */
     position: absolute;
