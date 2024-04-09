@@ -72,7 +72,7 @@ class Learn extends React.Component {
             <h1 className='home-header'>Home</h1>
           </Link>
           <Link to="/mock-trading" style={{ textDecoration: 'none' }}>
-            <h1 className='mocktrade-header'>Mock Trading</h1>
+            <h1 className='mocktrade-header'>Your Stocks</h1>
           </Link>
           <Link to="/learn" style={{ color: 'black' }}>
             <h1 className='learn-header active'>Learn</h1>
