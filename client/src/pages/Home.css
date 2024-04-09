@@ -240,6 +240,7 @@ button {
 }
 
 .stock-grid {
+  margin-left: 120px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 310px);
 }
