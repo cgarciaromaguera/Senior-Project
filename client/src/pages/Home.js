@@ -131,17 +131,39 @@ class Home extends React.Component {
           <form>
               <label htmlFor="stock">Search for Stocks:</label>
               <input type="text" id="stock" value={this.state.search} onChange={this.handleChange.bind(this)}/>
-              <button type="search" disabled={this.state.loading} onClick={this.handleSearch.bind(this)}>Search</button>
-              <button type="reset" disabled={this.state.loading} onClick={this.handleReset.bind(this)}>Reset</button>
+              <button style={{
+                    backgroundColor: 'green',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                    fontSize: '13px',                    
+                    marginTop: 'auto'
+                }}
+              type="search" disabled={this.state.loading} onClick={this.handleSearch.bind(this)}>Search</button>
+              {this.state.searching
+              ? 
+                <button style={{
+                  backgroundColor: 'green',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '5px',
+                  padding: '5px 15px',
+                  cursor: 'pointer',
+                  fontSize: '13px',           
+                  marginTop: 'auto'
+                }}
+                type="reset" disabled={this.state.loading} onClick={this.handleReset.bind(this)}>Reset</button>
+              : 
+                ""
+              }
           </form>
 
           <div>
             {this.state.searching
             ? this.state.loading
               ? <h1>Loading...</h1>
-
-
-
               : <div>
                 Searching for: "{this.state.lastSearch}"
                   <InfiniteScroll
@@ -161,10 +183,6 @@ class Home extends React.Component {
                       </div>
                   </InfiniteScroll>
                 </div>
-
-
-
-
             : this.state.loading
               ? <h1>Loading...</h1>
               : <InfiniteScroll
