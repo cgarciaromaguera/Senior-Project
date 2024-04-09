@@ -29,7 +29,9 @@ const Account = () => {
                 <Link to="/mock-trading" style={{ textDecoration: 'none' }}>
                     <h1 className='mocktrade-header'>Your Stocks</h1>
                 </Link>
+                <Link to="/learn" style={{ textDecoration: 'none' }}>
                 <h1 className='learn-header'>Learn</h1>
+                </Link>
             </div>
             <div className='container'>
                 <div className='profileContainer'>

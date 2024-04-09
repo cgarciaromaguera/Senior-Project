@@ -120,10 +120,12 @@ class Home extends React.Component {
             <Link to="/" style={{color: "black"}}>
               <h1 className='home-header'>Home</h1>
             </Link>
-            <Link to="/mock-trading"style={{ textDecoration: 'none' }}>
+            <Link to="/mock-trading" style={{ textDecoration: 'none' }}>
               <h1 className='mocktrade-header'>Your Stocks</h1>
             </Link>
+            <Link to="/learn" style={{ textDecoration: 'none' }}>
               <h1 className='learn-header'>Learn</h1>
+            </Link>
           </div>
 
           <form>

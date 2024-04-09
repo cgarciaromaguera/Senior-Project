@@ -8,7 +8,9 @@ const MockTrading = () => {
         <div>
             <div className='header'>
                 <img src={logo} alt="Logo" className="logo" />
+                <Link to="/account" style={{ textDecoration: 'none' }}>
                 <h10 className="account"> Account </h10>
+                </Link>
             </div>
             <div className="navigationBar">
                 <Link to="/" style={{ textDecoration: 'none' }}>
