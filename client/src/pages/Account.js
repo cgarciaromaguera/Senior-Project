@@ -4,11 +4,13 @@ import './Account.css';
 import logo from './logo.png';
 import profilePic from './exProfilePic.png';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { useMoneyContext } from '../hooks/useMoneyContext';
 import { useLogout } from '../hooks/useLogout';
 
 const Account = () => {
     const { logout } = useLogout()
     const { user } = useAuthContext()
+    const { money } = useMoneyContext()
 
     const handleLogout = () => {
         logout()
@@ -38,7 +40,8 @@ const Account = () => {
                     <div className="profilePicContainer">
                         <img src={profilePic} alt="User Profile Picture" className="profilePic" />
                         <h3 className='infoBox'>Username: {user.username}</h3> 
-                        <h3 className='infoBox'>Email: {user.email}</h3>            
+                        <h3 className='infoBox'>Email: {user.email}</h3> 
+                        <h4 className='infoBox'>Balance: ${money}</h4>           
                     </div> 
                     <div className='accountInfo'>
                         <div className='accountBox'>

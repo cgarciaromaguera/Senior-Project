@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 import './MockTrading.css';
 import logo from './logo2.png';
+import OwnedStock from '../components/OwnedStock.js'
+import { useMoneyContext } from '../hooks/useMoneyContext';
+import { useStocksContext } from '../hooks/useStocksContext';
+import { useAuthContext } from '../hooks/useAuthContext.js';
 
 const MockTrading = () => {
+    const { user } = useAuthContext()
+    const { money } = useMoneyContext()
+    const { stocks } = useStocksContext()
+    const [owned, setOwned] = useState([])
+
+    useEffect(() => {
+        let s = []
+        const getCurrentStocks = async () => {
+            let tickers = Object.keys(stocks)
+
+            let i = 0
+            while (i != Object.keys(stocks).length) {
+                await axios.get(`https://api.polygon.io/v3/snapshot?ticker.any_of=${tickers[i]}&apiKey=6uOX_KEZHdvzqvHxUnHo5GiKCyaQtAhP`)
+                    .then((res) => {
+                        const currentStock = res.data.results[0]
+                        const boughtStock = stocks[currentStock.ticker]
+                        s.push(<OwnedStock boughtStock={boughtStock[0]} currentStock={currentStock} shares={boughtStock[1]}/>)
+                    })
+                i++
+            }
+            setOwned(s)
+        } 
+
+        getCurrentStocks()
+    }, [user])
+
     return (
         <div>
             <div className='header'>
@@ -26,11 +57,11 @@ const MockTrading = () => {
             </div>
             <div className='container'>
                 <div className='currentStockContainer'>
-                    <h1>Current Stocks:</h1>
+                    <h1>Current Stocks: {owned && owned.map((row) => {return row})}</h1>
                 </div>
                 <div className='rightside'>
                     <div className='balanceBox'>
-                        <h1>Current Balance:</h1>
+                        <h1>Current Balance: {money}</h1>
                     </div>
                     <div className='watchingBox'>
                         <h1>Stocks Watching:</h1>

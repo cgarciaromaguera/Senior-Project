@@ -29,7 +29,9 @@ const userSchema = new Schema
                 required: true
         },
         stocks: {
-                type: Array
+                type: Map,
+                of: Array,
+                required: true
         }
 }, {timestamps: true});
 
@@ -59,7 +61,7 @@ userSchema.statics.signup = async function(username, email, password) {
         const salt = await bcrypt.genSalt(10)
         const hash = await bcrypt.hash(password, salt)
 
-        const user = await this.create({ username, email, password: hash, money: 5000})
+        const user = await this.create({ username, email, password: hash, money: 5000, stocks: {}})
 
         return user
 }
