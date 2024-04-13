@@ -1,9 +1,6 @@
 // Stock.js
 import React, { useState } from 'react';
-import { jwtDecode } from 'jwt-decode'
 import Popup from './Popup'; // Import the Popup component
-import { useAuthContext } from '../hooks/useAuthContext';
-import { usePurchase } from '../hooks/usePurchase';
 
 const OwnedStock = (props) => {
     const { ticker, name, session: boughtSession } = props.boughtStock;
@@ -11,11 +8,6 @@ const OwnedStock = (props) => {
     const shares = props.shares
     const profit = (currentSession.price * shares) - (boughtSession.price * shares)
     const priceFixed = boughtSession?.price?.toFixed(2) ?? 'N/A';
-    const changeFixed = boughtSession?.change?.toFixed(2) ?? 'N/A';
-    const changePercentFixed = boughtSession?.change_percent?.toFixed(2) ?? 'N/A';
-    const volumeString = boughtSession?.volume?.toLocaleString() ?? 'N/A';
-    const isPositive = boughtSession?.change >= 0;
-    const { user } = useAuthContext()
 
     // State to manage popup visibility
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -55,26 +47,6 @@ const OwnedStock = (props) => {
         fontWeight: 'bold',
         marginTop: '5px',
         marginBottom: '0px'
-    };
-
-    // Style for the change and percentage change
-    const changeStyle = {
-        fontSize: '16px',
-        fontWeight: 'bold',
-        color: isPositive ? 'green' : 'red',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    };
-
-    // Style for the triangle indicating the direction of the change
-    const triangleStyle = {
-        width: 0,
-        height: 0,
-        borderLeft: '5px solid transparent',
-        borderRight: '5px solid transparent',
-        borderTop: isPositive ? '10px solid green' : '10px solid red',
-        marginRight: '5px'
     };
 
     const priceContainer = {
