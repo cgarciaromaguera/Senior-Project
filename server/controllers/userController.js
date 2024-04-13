@@ -16,7 +16,7 @@ const loginUser = async (req, res) => {
         // create token
         const token = createToken(user._id)
 
-        res.status(200).json({ username, email: user.email, token, success:true })
+        res.status(200).json({ username, email: user.email, money: user.money, stocks: user.stocks, token, success:true })
     } catch (error) {
         console.log(error.message)
         res.status(400).json({error: error.message, success: false})
@@ -33,10 +33,22 @@ const signupUser = async (req, res) => {
         // create token
         const token = createToken(user._id)
 
-        res.status(200).json({ username, email, token, success: true })
+        res.status(200).json({ username, email, money: user.money, stocks: user.stocks, token, success: true })
     } catch (error) {
         res.status(400).json({ error: error.message, success: false })
     }
 }
 
-module.exports = { signupUser, loginUser }
+const purchaseStock = async (req, res) => {
+    const { _id, stock, spent, shares } = req.body
+
+    const user = await User.findOneAndUpdate(
+        { _id: _id }, 
+        { $inc: { money: -spent } ,
+          $set: { [`stocks.${stock.ticker}`]: [stock, shares] }}, 
+        { new: true })
+
+    res.status(200).json({ money: user.money, stocks: user.stocks })
+}
+
+module.exports = { signupUser, loginUser, purchaseStock }

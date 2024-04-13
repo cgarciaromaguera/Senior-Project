@@ -5,6 +5,7 @@ import Stock from '../components/Stock'
 import logo from './logo2.png';
 import './Home.css'
 import { Link } from 'react-router-dom'
+import { MoneyContext } from "../context/MoneyContext";
 
 class Home extends React.Component {
   state = {
@@ -17,10 +18,12 @@ class Home extends React.Component {
     stocks: [],
     loading: true,
     items: Array.from({ length: 20 }),
-    hasMore: true
+    hasMore: true,
+    money: this.context.money
   };
   itemsPerPage = 500
-
+  static contextType = MoneyContext
+  
   async componentDidMount() {
     let t = []
     let next_url = ""
@@ -49,6 +52,10 @@ class Home extends React.Component {
     })
   }
 
+  setMoney(spent) {
+    this.setState({money: this.state.money - spent})
+  }
+
   fetchMoreData = () => {
     let stockList = []
 
@@ -58,7 +65,7 @@ class Home extends React.Component {
         }, () => {
            
             for (let i = 0; i < this.state.display.length; i++) {
-              stockList.push(<Stock stock = {this.state.tickers[i]} />)
+              stockList.push(<Stock stock={this.state.tickers[i]} changeMoney={this.setMoney.bind(this)}/>)
             }
 
             this.setState({stocks: stockList})
@@ -75,7 +82,7 @@ class Home extends React.Component {
         display: [...this.state.display, ...this.state.searched.slice(this.state.display.length, this.state.display.length + this.itemsPerPage)]
       }, () => {
         for (let i = 0; i < this.state.display.length; i++) {
-          list.push(<Stock stock = {this.state.searched[i]} />)
+          list.push(<Stock stock={this.state.searched[i]} changeMoney={this.setMoney.bind(this)}/>)
         }
 
         this.setState({stocks: list})
@@ -161,6 +168,7 @@ class Home extends React.Component {
           </form>
 
           <div>
+            <h3>Your Balance: ${this.state.money}</h3>
             {this.state.searching
             ? this.state.loading
               ? <h1>Loading...</h1>
@@ -205,55 +213,6 @@ class Home extends React.Component {
           </div>
         </div>
     );
-
-  // render() {
-  //   return (
-  //       <div className='home'>
-  //         <div className='header'>
-  //           <img src={logo} alt="Logo" className="logo-home" /> {/* Include the logo */} 
-  //           <h10 className="account"> Account </h10>
-  //         </div>
-
-  //         <div className="navigationBar">
-  //           <Link to="/" style={{color:"black"}}>
-  //             <h1 className='home-header'>Home</h1>
-  //           </Link>
-  //           <Link to="/mock-trading"style={{ textDecoration: 'none' }}>
-  //             <h1 className='mocktrade-header'>Your Stocks</h1>
-  //           </Link>
-  //           <Link to="/learn"style={{ textDecoration: 'none' }}>
-  //             <h1 className='learn-header'>Learn</h1>
-  //           </Link>
-  //         </div>
-
-  //         <form onSubmit={this.handleSubmit.bind(this)}>
-  //             <label htmlFor="stock">Search for Stocks:</label>
-  //             <input type="text" id="stock" onChange={this.handleChange.bind(this)}/>
-  //             <button type="search">Search</button>
-  //         </form>
-
-  //         <div>
-  //           {this.state.loading
-  //           ? <h1>Loading...</h1>
-  //           : <InfiniteScroll
-  //               dataLength={this.state.stocks.length}
-  //               next={this.fetchMoreData}
-  //               hasMore={true}
-  //               loader={<h1>Loading...</h1>}
-  //               height={600}>
-  //                 <div className="stock-grid"style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill)'}}>
-  //                   {this.state.stocks.map((row) => {
-  //                     return (
-  //                       <div>
-  //                         {row}
-  //                       </div>
-  //                     )
-  //                   })}
-  //                 </div>
-  //               </InfiniteScroll>}
-  //         </div>
-  //       </div>
-  //   );
   }
 }
 

@@ -18,7 +18,7 @@ function App() {
             <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" element={!user ? <SignUp /> : <Navigate to="/" />} />
-            <Route path="/mock-trading" element={<MockTrading />} />
+            <Route path="/mock-trading" element={user ? <MockTrading /> : <Navigate to="/login" />} />
             <Route path="/account" element={user ? <Account /> : <Navigate to="/login" />} />
             <Route path="/learn" element={user ? <Learn/> : <Navigate to="/login" />} />
           </Routes>

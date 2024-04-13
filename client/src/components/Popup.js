@@ -1,17 +1,19 @@
 // Popup.js
 import React, { useState } from 'react';
 
-const Popup = ({ isVisible, stock = {}, onClose, onPurchase }) => {
+const Popup = ({ isVisible, stock = {}, rawStock = {}, onClose, onPurchase, changeMoney }) => {
     const [inputAmount, setInputAmount] = useState('');
 
     // Function to handle the buying process
     const handleBuy = () => {
         // Remove the dollar sign before parsing
         const amount = inputAmount.replace(/^\$/, '');
+        const shares = (parseFloat(inputAmount.replace(/^\$/, '')) / parseFloat(stock.priceFixed)).toFixed(2);
         if (amount && !isNaN(amount) && parseFloat(amount) > 0) {
             if (stock.ticker && stock.priceFixed) {
-                onPurchase(stock.ticker, amount);
+                onPurchase(rawStock, amount, shares);
                 onClose(); // Close the popup after buying
+                changeMoney(amount)
             } else {
                 alert('Stock information is not available.');
             }

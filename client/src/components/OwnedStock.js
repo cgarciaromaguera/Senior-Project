@@ -5,15 +5,17 @@ import Popup from './Popup'; // Import the Popup component
 import { useAuthContext } from '../hooks/useAuthContext';
 import { usePurchase } from '../hooks/usePurchase';
 
-const Stock = (props) => {
-    const { ticker, name, session } = props.stock;
-    const priceFixed = session?.price?.toFixed(2) ?? 'N/A';
-    const changeFixed = session?.change?.toFixed(2) ?? 'N/A';
-    const changePercentFixed = session?.change_percent?.toFixed(2) ?? 'N/A';
-    const volumeString = session?.volume?.toLocaleString() ?? 'N/A';
-    const isPositive = session?.change >= 0;
+const OwnedStock = (props) => {
+    const { ticker, name, session: boughtSession } = props.boughtStock;
+    const { session: currentSession } = props.currentStock
+    const shares = props.shares
+    const profit = (currentSession.price * shares) - (boughtSession.price * shares)
+    const priceFixed = boughtSession?.price?.toFixed(2) ?? 'N/A';
+    const changeFixed = boughtSession?.change?.toFixed(2) ?? 'N/A';
+    const changePercentFixed = boughtSession?.change_percent?.toFixed(2) ?? 'N/A';
+    const volumeString = boughtSession?.volume?.toLocaleString() ?? 'N/A';
+    const isPositive = boughtSession?.change >= 0;
     const { user } = useAuthContext()
-    const { purchase } = usePurchase()
 
     // State to manage popup visibility
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -33,7 +35,7 @@ const Stock = (props) => {
         flexDirection: 'column',
         alignItems: 'center',
         margin: '10px',
-        width: '250px',
+        width: '400px',
         height: '200px'
     };
 
@@ -41,19 +43,18 @@ const Stock = (props) => {
     const nameStyle = {
         fontSize: '16px',
         fontWeight: 'bold',
-        overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
         width: '90%',
         textAlign: 'center',
-        marginBottom: '5px' // Add some margin at the bottom
     };
 
     // Style for the price of the stock
     const priceStyle = {
         fontSize: '36px',
         fontWeight: 'bold',
-        margin: '5px 0'
+        marginTop: '5px',
+        marginBottom: '0px'
     };
 
     // Style for the change and percentage change
@@ -76,28 +77,27 @@ const Stock = (props) => {
         marginRight: '5px'
     };
 
-    const handlePurchase = (stock, amount, shares) => {
-        // subtract from user's money
-        // add element to user's stock map
-            // key: stock.ticker, value: array [stock, number of shares]
-
-        const _id = jwtDecode(user.token)._id        
-        purchase(_id, stock, amount, shares)
-
-        console.log(`Purchased ${amount} (${shares}) of ${stock.ticker}`);
-        
-    } 
+    const priceContainer = {
+        display: 'flex',
+        justifyContent: 'center',
+    }
 
     return (
         <div className="stock" style={stockCardStyle}>
             <span style={{ fontSize: '24px', fontWeight: 'bold' }}>{ticker}</span>
             <span style={nameStyle} title={name}>{name}</span>
-            <span style={priceStyle}>${priceFixed}</span>
-            <div style={changeStyle}>
-                <div style={triangleStyle}></div>
-                {changeFixed} ({changePercentFixed}%)
+
+            <div style={priceContainer}>
+                <div style={{ marginLeft: 'auto', marginRight: '35px', textAlign: 'center' }}>
+                    <p style={{fontSize: '15px', marginBottom: '0px'}}>Bought at:</p>
+                    <p style={{...priceStyle}}>${priceFixed}</p>
+                </div>
+                <div style={{ marginLeft: '35px', marginRight: 'auto', textAlign: 'center' }}>
+                    <p style={{fontSize: '15px', marginBottom: '0px'}}>Current:</p>
+                    <p style={{...priceStyle}}>${currentSession.price.toFixed(2)}</p>
+                </div>
             </div>
-            <span style={{ fontSize: '12px', color: '#666' }}>Volume: {volumeString}</span>
+            <div style={{ fontSize: '20px', marginTop: '5px' }}>Sell {shares} shares for a profit of {profit}</div>
             <button
                 style={{
                     backgroundColor: 'green',
@@ -108,26 +108,25 @@ const Stock = (props) => {
                     cursor: 'pointer',
                     fontSize: '16px',
                     fontWeight: 'bold',
-                    marginTop: 'auto'
+                    marginTop: '10px'
                 }}
                 onClick={togglePopup}
             >
-                Buy
+                Sell
             </button>
             
             <Popup
             isVisible={isPopupVisible}
             stock={{
               ticker,
-              priceFixed: session?.price?.toFixed(2) ?? 'N/A'
+              priceFixed: boughtSession?.price?.toFixed(2) ?? 'N/A'
             }}
-            rawStock={props.stock}
+            rawStock={props.boughtStock}
             onClose={togglePopup}
-            onPurchase={handlePurchase}
             changeMoney={(amount) => {props.changeMoney(amount)}}
         />
         </div>
     );
 };
 
-export default Stock;
+export default OwnedStock;
