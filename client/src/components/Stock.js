@@ -1,9 +1,9 @@
 // Stock.js
 import React, { useState } from 'react';
 import { jwtDecode } from 'jwt-decode'
-import Popup from './Popup'; // Import the Popup component
 import { useAuthContext } from '../hooks/useAuthContext';
 import { usePurchase } from '../hooks/usePurchase';
+import BuyPopup from './BuyPopup';
 
 const Stock = (props) => {
     const { ticker, name, session } = props.stock;
@@ -115,7 +115,7 @@ const Stock = (props) => {
                 Buy
             </button>
             
-            <Popup
+            <BuyPopup
             isVisible={isPopupVisible}
             stock={{
               ticker,

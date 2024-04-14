@@ -1,6 +1,9 @@
-// Stock.js
+// OwnedStock.js
 import React, { useState } from 'react';
-import Popup from './Popup'; // Import the Popup component
+import SellPopup from './SellPopup.js'
+import { jwtDecode } from 'jwt-decode';
+import { useAuthContext } from '../hooks/useAuthContext.js';
+import { useSell } from '../hooks/useSell.js';
 
 const OwnedStock = (props) => {
     const { ticker, name, session: boughtSession } = props.boughtStock;
@@ -8,6 +11,8 @@ const OwnedStock = (props) => {
     const shares = props.shares
     const profit = (currentSession.price * shares) - (boughtSession.price * shares)
     const priceFixed = boughtSession?.price?.toFixed(2) ?? 'N/A';
+    const { user } = useAuthContext()
+    const { sell } = useSell()
 
     // State to manage popup visibility
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -54,8 +59,16 @@ const OwnedStock = (props) => {
         justifyContent: 'center',
     }
 
+    const handleSale = (stock, change, shares) => {
+        const _id = jwtDecode(user.token)._id    
+        sell(_id, stock, change, shares)    
+        
+
+        console.log();
+    }
+
     return (
-        <div className="stock" style={stockCardStyle}>
+        <div style={stockCardStyle}>
             <span style={{ fontSize: '24px', fontWeight: 'bold' }}>{ticker}</span>
             <span style={nameStyle} title={name}>{name}</span>
 
@@ -69,7 +82,7 @@ const OwnedStock = (props) => {
                     <p style={{...priceStyle}}>${currentSession.price.toFixed(2)}</p>
                 </div>
             </div>
-            <div style={{ fontSize: '20px', marginTop: '5px' }}>Sell {shares} shares for a profit of {profit}</div>
+            <div style={{ fontSize: '15px', marginTop: '5px' }}>Sell {shares} shares for a profit of ${profit.toFixed(2)}</div>
             <button
                 style={{
                     backgroundColor: 'green',
@@ -87,15 +100,17 @@ const OwnedStock = (props) => {
                 Sell
             </button>
             
-            <Popup
+            <SellPopup
             isVisible={isPopupVisible}
             stock={{
               ticker,
-              priceFixed: boughtSession?.price?.toFixed(2) ?? 'N/A'
+              priceFixed: currentSession?.price?.toFixed(2) ?? 'N/A'
             }}
-            rawStock={props.boughtStock}
+            boughtStock={props.boughtStock}
+            currentStock={props.currentStock}
             onClose={togglePopup}
-            changeMoney={(amount) => {props.changeMoney(amount)}}
+            onSell={handleSale}
+            shares={{shares}}
         />
         </div>
     );

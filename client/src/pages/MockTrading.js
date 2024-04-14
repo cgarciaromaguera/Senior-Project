@@ -20,7 +20,7 @@ const MockTrading = () => {
             let tickers = Object.keys(stocks)
 
             let i = 0
-            while (i != Object.keys(stocks).length) {
+            while (i !== Object.keys(stocks).length) {
                 await axios.get(`https://api.polygon.io/v3/snapshot?ticker.any_of=${tickers[i]}&apiKey=6uOX_KEZHdvzqvHxUnHo5GiKCyaQtAhP`)
                     .then((res) => {
                         const currentStock = res.data.results[0]
@@ -33,7 +33,7 @@ const MockTrading = () => {
         } 
 
         getCurrentStocks()
-    }, [user])
+    }, [user, stocks])
 
     return (
         <div className='mocktrading'>
@@ -57,11 +57,12 @@ const MockTrading = () => {
             </div>
             <div className='container'>
                 <div className='currentStockContainer'>
-                    <h1>Current Stocks: {owned && owned.map((row) => {return row})}</h1>
+                    <h1>Current Stocks:</h1>
+                    <div>{owned && owned.map((row) => {return row})}</div>
                 </div>
                 <div className='rightside'>
                     <div className='balanceBox'>
-                        <h1>Current Balance: {money}</h1>
+                        <h1>Current Balance: <p>${money}</p></h1>
                     </div>
                     <div className='watchingBox'>
                         <h1>Stocks Watching:</h1>

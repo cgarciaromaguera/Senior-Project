@@ -107,7 +107,7 @@ class Home extends React.Component {
 
   handleReset = (e) => {
     e.preventDefault()
-    this.setState({ display: [], stocks: [], searched: [], searching: false, lastSearch: ""}, () => {
+    this.setState({ display: [], stocks: [], searched: [], searching: false, lastSearch: "", search: ""}, () => {
       this.fetchMoreData()
     })
 

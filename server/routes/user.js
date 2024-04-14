@@ -1,7 +1,7 @@
 const express = require('express')
 
 // controller functions
-const { signupUser, loginUser, purchaseStock } = require('../controllers/userController')
+const { signupUser, loginUser, purchaseStock, sellStock } = require('../controllers/userController')
 
 const router = express.Router()
 
@@ -13,5 +13,9 @@ router.post('/signup', signupUser)
 
 // purchase route
 router.post('/purchase', purchaseStock)
+
+// sell route
+router.post('/sell', sellStock)
+
 
 module.exports = router
