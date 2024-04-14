@@ -51,4 +51,34 @@ const purchaseStock = async (req, res) => {
     res.status(200).json({ money: user.money, stocks: user.stocks })
 }
 
-module.exports = { signupUser, loginUser, purchaseStock }
+const sellStock = async (req, res) => {
+    console.log("HERE")
+    const { _id, stock, change, shares } = req.body
+
+    console.log(change)
+
+
+    let user = await User.findOneAndUpdate(
+        { _id: _id }, 
+        { $inc: { money: change } ,
+          $set: { [`stocks.${stock.ticker}`]: [stock, shares]}}, 
+        { new: true }
+    )
+
+    console.log(user.stocks.get(stock.ticker))
+
+    if (user.stocks.get(stock.ticker)[1] <= 0) {
+        user = await User.findOneAndUpdate(
+            { _id: _id },
+            { $unset: { [`stocks.${stock.ticker}`]: [null, 0]}},
+            { new: true }
+        )
+    }
+
+    console.log(user.money)
+    console.log(user.stocks)
+
+    res.status(200).json({ money: user.money, stocks: user.stocks })
+}
+
+module.exports = { signupUser, loginUser, purchaseStock, sellStock }

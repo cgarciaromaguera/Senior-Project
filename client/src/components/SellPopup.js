@@ -1,24 +1,29 @@
 // Popup.js
 import React, { useState } from 'react';
 
-const Popup = ({ isVisible, stock = {}, rawStock = {}, onClose, onPurchase, changeMoney }) => {
-    const [inputAmount, setInputAmount] = useState('');
+const SellPopup = ({ isVisible, stock = {}, boughtStock = {}, currentStock = {}, onClose, onSell, shares }) => {
+    const [inputShares, setInputShares] = useState('');
+    const [gain, setGain] = useState(false)
 
     // Function to handle the buying process
-    const handleBuy = () => {
-        // Remove the dollar sign before parsing
-        const amount = inputAmount.replace(/^\$/, '');
-        const shares = (parseFloat(inputAmount.replace(/^\$/, '')) / parseFloat(stock.priceFixed)).toFixed(2);
-        if (amount && !isNaN(amount) && parseFloat(amount) > 0) {
+    const handleSell = () => {
+        if (inputShares && !isNaN(inputShares) && parseFloat(inputShares) > 0) {
             if (stock.ticker && stock.priceFixed) {
-                onPurchase(rawStock, amount, shares);
-                onClose(); // Close the popup after buying
-                changeMoney(amount)
+                const boughtAmount = (parseFloat(inputShares) * parseFloat(boughtStock.session.price)).toFixed(2)
+                const currentAmount = (parseFloat(inputShares) * parseFloat(stock.priceFixed)).toFixed(2)
+                let change = (currentAmount - boughtAmount)
+                const newShares = (shares.shares - inputShares).toFixed(2)
+
+                change = 50.00
+
+                onSell(boughtStock, change, newShares)
+                onClose(); // Close the popup after selling
+                //changeMoney()
             } else {
                 alert('Stock information is not available.');
             }
         } else {
-            alert('Please enter a valid amount.');
+            alert('Please enter a valid number of shares.');
         }
     };
 
@@ -26,10 +31,16 @@ const Popup = ({ isVisible, stock = {}, rawStock = {}, onClose, onPurchase, chan
 
     // Input validation and setting the input amount
     const handleInputChange = (e) => {
-        const value = e.target.value.replace(/^\$/, '');
-        if (value === '' || /^\d*\.?\d*$/.test(value)) { // Allows decimal numbers
-            setInputAmount(`$${value}`); // Add the dollar sign to the input
+        const value = e.target.value;
+        if (value === '' || /^\d*\.?\d{0,2}$/.test(value)) { // Allows up to 2 decimal places
+            setInputShares(value);
         }
+
+        const boughtAmount = (parseFloat(inputShares) * parseFloat(boughtStock.session.price)).toFixed(2)
+        const currentAmount = (parseFloat(inputShares) * parseFloat(stock.priceFixed)).toFixed(2)
+        let change = (currentAmount - boughtAmount)
+
+        change < 0 ? setGain(false) : setGain(true)
     };
 
     return (
@@ -64,24 +75,29 @@ const Popup = ({ isVisible, stock = {}, rawStock = {}, onClose, onPurchase, chan
                     cursor: 'pointer',
                 }}>Close</button>
                 <div style={{ fontWeight: 'bold', fontSize: '20px', marginLeft: '10px' }}>{stock.ticker}</div>
-                <div style={{ alignSelf: 'flex-start', marginLeft: '10px', marginBottom: '5px' }}>Input amount:</div>
+                <div style={{ alignSelf: 'flex-start', marginLeft: '10px', marginBottom: '5px' }}>Amount of shares to sell:</div>
                 <input
                     style={{
                         fontSize: '16px',
                         padding: '10px',
-                        paddingLeft: '30px', // Adjust padding to make room for the dollar sign
+                        paddingLeft: '12px', // Adjust padding to make room for the dollar sign
                         width: 'calc(80% - 30px)', // Adjust width to account for padding
-                        margin: '10px 0',
+                        marginTop: '10px',
+                        marginBottom: '10px',
+                        marginLeft: '13px',
                         position: 'relative'
                     }}
-                    value={inputAmount}
+                    value={inputShares}
                     onChange={handleInputChange}
-                    placeholder="$"
+                    placeholder="0.00"
                 />
-                <div style={{ marginLeft: '10px' }}>Shares: {inputAmount && stock.priceFixed !== 'N/A' ? 
-                    (parseFloat(inputAmount.replace(/^\$/, '')) / parseFloat(stock.priceFixed)).toFixed(2) : 'N/A'}</div>
+                {inputShares
+                ? <div style={{ marginLeft: '10px' }}>Sell {inputShares} for a {gain ? "profit" : "loss"} of 
+                    ${((parseFloat(inputShares) * parseFloat(stock.priceFixed)).toFixed(2))
+                      - ((parseFloat(inputShares) * parseFloat(boughtStock.session.price)).toFixed(2))}</div>
+                : ""}
                 <button 
-                    onClick={handleBuy}
+                    onClick={handleSell}
                     style={{
                         backgroundColor: 'green',
                         color: 'white',
@@ -91,13 +107,14 @@ const Popup = ({ isVisible, stock = {}, rawStock = {}, onClose, onPurchase, chan
                         cursor: 'pointer',
                         fontSize: '16px',
                         fontWeight: 'bold',
-                        marginTop: '10px' // Added margin to space out the button
+                        marginTop: '10px', // Added margin to space out the button
+                        marginRight: '15px'
                     }}>
-                    Buy
+                    Sell
                 </button>
             </div>
         </div>
     );
 };
 
-export default Popup;
+export default SellPopup;
