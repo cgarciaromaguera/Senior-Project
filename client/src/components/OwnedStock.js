@@ -69,8 +69,10 @@ const OwnedStock = (props) => {
 
     return (
         <div style={stockCardStyle}>
+
             <span style={{ fontSize: '24px', fontWeight: 'bold' }}>{ticker}</span>
             <span style={nameStyle} title={name}>{name}</span>
+            <span style={{marginTop: '10px', fontSize:'15px'}}>Shares: {shares}</span>
 
             <div style={priceContainer}>
                 <div style={{ marginLeft: 'auto', marginRight: '35px', textAlign: 'center' }}>
@@ -82,7 +84,6 @@ const OwnedStock = (props) => {
                     <p style={{...priceStyle}}>${currentSession.price.toFixed(2)}</p>
                 </div>
             </div>
-            <div style={{ fontSize: '15px', marginTop: '5px' }}>Sell {shares} shares for a profit of ${profit.toFixed(2)}</div>
             <button
                 style={{
                     backgroundColor: 'green',

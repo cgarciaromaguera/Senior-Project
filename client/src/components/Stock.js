@@ -81,7 +81,7 @@ const Stock = (props) => {
         // add element to user's stock map
             // key: stock.ticker, value: array [stock, number of shares]
 
-        const _id = jwtDecode(user.token)._id        
+        const _id = jwtDecode(user.token)._id   
         purchase(_id, stock, amount, shares)
 
         console.log(`Purchased ${amount} (${shares}) of ${stock.ticker}`);
