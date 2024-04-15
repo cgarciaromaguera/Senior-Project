@@ -42,21 +42,35 @@ const signupUser = async (req, res) => {
 const purchaseStock = async (req, res) => {
     const { _id, stock, spent, shares } = req.body
 
-    const user = await User.findOneAndUpdate(
-        { _id: _id }, 
-        { $inc: { money: -spent } ,
-          $set: { [`stocks.${stock.ticker}`]: [stock, shares] }}, 
-        { new: true })
+    let user = await User.findOne({ _id: _id })
+
+    // if (user.stocks.get(stock.ticker)) {
+    //     const oldShares = user.stocks.get(stock.ticker)[1]
+
+    //     console.log("input shares", shares)
+    //     console.log("old shares", oldShares)
+    //     const newShares = parseFloat(oldShares) + parseFloat(shares)
+    //     console.log("new shares", newShares)
+
+    //     user = await User.findOneAndUpdate(
+    //         { _id: _id },
+    //         { $inc: { money: -spent },
+    //           $set: { [`stocks.${stock.ticker}`]: [stock, newShares]  }},
+    //         { new: true})
+    // }
+    // else {
+        user = await User.findOneAndUpdate(
+            { _id: _id }, 
+            { $inc: { money: -spent },
+            $set: { [`stocks.${stock.ticker}`]: [stock, shares] }}, 
+            { new: true })
+    //}
 
     res.status(200).json({ money: user.money, stocks: user.stocks })
 }
 
 const sellStock = async (req, res) => {
-    console.log("HERE")
     const { _id, stock, change, shares } = req.body
-
-    console.log(change)
-
 
     let user = await User.findOneAndUpdate(
         { _id: _id }, 
@@ -64,8 +78,6 @@ const sellStock = async (req, res) => {
           $set: { [`stocks.${stock.ticker}`]: [stock, shares]}}, 
         { new: true }
     )
-
-    console.log(user.stocks.get(stock.ticker))
 
     if (user.stocks.get(stock.ticker)[1] <= 0) {
         user = await User.findOneAndUpdate(

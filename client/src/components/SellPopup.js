@@ -14,11 +14,8 @@ const SellPopup = ({ isVisible, stock = {}, boughtStock = {}, currentStock = {},
                 let change = (currentAmount - boughtAmount)
                 const newShares = (shares.shares - inputShares).toFixed(2)
 
-                change = 50.00
-
                 onSell(boughtStock, change, newShares)
                 onClose(); // Close the popup after selling
-                //changeMoney()
             } else {
                 alert('Stock information is not available.');
             }
@@ -42,6 +39,11 @@ const SellPopup = ({ isVisible, stock = {}, boughtStock = {}, currentStock = {},
 
         change < 0 ? setGain(false) : setGain(true)
     };
+
+    const getChange = () => {
+        return (((parseFloat(inputShares) * parseFloat(stock.priceFixed)).toFixed(2))
+                - ((parseFloat(inputShares) * parseFloat(boughtStock.session.price)).toFixed(2))).toFixed(2)
+    }
 
     return (
         <div style={{
@@ -75,6 +77,7 @@ const SellPopup = ({ isVisible, stock = {}, boughtStock = {}, currentStock = {},
                     cursor: 'pointer',
                 }}>Close</button>
                 <div style={{ fontWeight: 'bold', fontSize: '20px', marginLeft: '10px' }}>{stock.ticker}</div>
+                <div style={{ alignSelf: 'flex-start', marginLeft: '10px', marginTop: '5px' }}>You own: {shares.shares} shares</div>
                 <div style={{ alignSelf: 'flex-start', marginLeft: '10px', marginBottom: '5px' }}>Amount of shares to sell:</div>
                 <input
                     style={{
@@ -84,18 +87,32 @@ const SellPopup = ({ isVisible, stock = {}, boughtStock = {}, currentStock = {},
                         width: 'calc(80% - 30px)', // Adjust width to account for padding
                         marginTop: '10px',
                         marginBottom: '10px',
-                        marginLeft: '13px',
+                        marginLeft: '10px',
                         position: 'relative'
                     }}
                     value={inputShares}
                     onChange={handleInputChange}
                     placeholder="0.00"
                 />
-                {inputShares
-                ? <div style={{ marginLeft: '10px' }}>Sell {inputShares} for a {gain ? "profit" : "loss"} of 
-                    ${((parseFloat(inputShares) * parseFloat(stock.priceFixed)).toFixed(2))
-                      - ((parseFloat(inputShares) * parseFloat(boughtStock.session.price)).toFixed(2))}</div>
-                : ""}
+                {
+                parseFloat(inputShares) && parseFloat(inputShares) <= shares.shares && parseFloat(inputShares) >= 0
+                ? 
+                <div style={{ marginLeft: '10px' }}>Sell {inputShares} shares for a {getChange() > 0 ? "profit" : "loss"} of 
+                    {getChange() > 0 
+                    ?
+                    " $" + (getChange() * 1).toFixed(2)
+                    : " $" + (getChange() * -1).toFixed(2)
+                    }
+                </div>
+                : 
+                    parseFloat(inputShares) <= shares.shares && parseFloat(inputShares) >= 0
+                    ?
+                    ""
+                    :
+                    <div style={{marginLeft: '10px'}}>
+                        Enter a valid number of shares
+                    </div>
+                }
                 <button 
                     onClick={handleSell}
                     style={{
