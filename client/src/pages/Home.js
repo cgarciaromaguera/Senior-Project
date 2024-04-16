@@ -135,7 +135,7 @@ class Home extends React.Component {
             </Link>
           </div>
 
-          <form>
+          <form style={{justifyContent: 'center', alignItems: 'center', alignSelf: 'center'}}>
               <label htmlFor="stock">Search for Stocks:</label>
               <input type="text" id="stock" value={this.state.search} onChange={this.handleChange.bind(this)}/>
               <button style={{
@@ -149,22 +149,17 @@ class Home extends React.Component {
                     marginTop: 'auto'
                 }}
               type="search" disabled={this.state.loading} onClick={this.handleSearch.bind(this)}>Search</button>
-              {this.state.searching
-              ? 
-                <button style={{
-                  backgroundColor: 'green',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '5px',
-                  padding: '5px 15px',
-                  cursor: 'pointer',
-                  fontSize: '13px',           
-                  marginTop: 'auto'
-                }}
-                type="reset" disabled={this.state.loading} onClick={this.handleReset.bind(this)}>Reset</button>
-              : 
-                ""
-              }
+              <button style={{
+                backgroundColor: 'green',
+                color: 'white',
+                border: 'none',
+                borderRadius: '5px',
+                padding: '5px 15px',
+                cursor: 'pointer',
+                fontSize: '13px',           
+                marginTop: 'auto'
+              }}
+              type="reset" disabled={this.state.loading} onClick={this.handleReset.bind(this)}>Reset</button>   
           </form>
 
           <div>
