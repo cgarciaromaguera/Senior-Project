@@ -4,11 +4,11 @@
     margin: 8px;
   }
   
+  /*HERE*/
   .searchbar {
     position: absolute;
-    left: 350px; /* You may need to adjust this based on your layout */
-    top: 234px; /* You may need to adjust this based on your layout */
-    /* Additional styling here */
+    left: 350px; 
+    top: 234px;
   }
   
   .header {
@@ -18,31 +18,25 @@
   }
   
   .logo {
-    /* position: absolute; */
     width: 80px;
     height: 50px;
     margin-left: 1.5rem;
     top: 0px;
   }
   
-  /* Add hover effect for all header links */
   .home-header:hover {
     font-weight: bold;
   }
   .mocktrade-header:hover {
-    /* text-decoration: underline; */
     font-weight: bold;
   }
   .learn-header:hover {
-    /* text-decoration: underline; */
     font-weight: bold;
   }
   .account:hover {
-    /* text-decoration: underline; */
     font-weight: bold;
   }
   
-  /* Style for the Account section in the header */
   .account {
     margin-right: 3rem;
     font-family: 'Inter', sans-serif;
@@ -52,7 +46,6 @@
     color: #000000;
   }
   
-  /* Navigation bar styling */
   .navigationBar {
     height: 50px;
     display: flex;
@@ -76,16 +69,49 @@
   .nav-link.active {
     text-decoration: underline;
   }
-  
-  /* Additional styles for animations, interactions or specific adjustments can be added here */
-  .learn-content-slider {
-    width: 80%; /* Adjust the width as needed */
+
+   /* Style for the definitions section */
+   .definitions-container {
+    display: flex;
+    justify-content: space-evenly; /* This will distribute the boxes evenly */
+    align-items: flex-start; /* Aligns items at the top if they are of different heights */
     margin: 2rem auto;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    padding: 20px; /* Space inside the slider */
-    background-color: white; /* Background color for the slider */
-    border-radius: 8px; /* Rounded corners */
+    max-width: 80%;
+    flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
+  }
+  
+  .definition-box {
+    background-color: white; /* Match slider box background color */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Match slider box shadow */
+    border-radius: 8px;
+    padding: 2rem;
+    flex-basis: calc(33.333% - 2rem); /* Allocate space for 3 boxes, subtracting the margin */
+    margin: 1rem 1rem; 
+    box-sizing: border-box; /* Include padding and border in the box's width */
+    min-height: 150px; /* Minimum height to ensure boxes are the same size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
+  }
+  
+  .definition-box h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .definition-box p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .learn-content-slider {
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
     position: relative;
+    margin: 2rem auto; 
+    max-width: 80%; 
   }
 
   .slick-slider {
@@ -99,55 +125,95 @@
   .slide {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the content vertically */
-    align-items: center; /* Center the content */
-    text-align: center; /* Center the text */
-    padding: 2rem;
-    height: 150px; /* Adjust the height as needed (was auto)*/
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 2rem; /* Padding inside each slide */
+    height: auto;
+    box-sizing: border-box; /* Include padding and border in the element's width */
   }
   
   /* Styling for dots provided by react-slick */
   .slick-dots {
     position: absolute;
-    bottom: -20px; /* Adjust this value to position the dots */
+    bottom: -10px; /* Adjust distance from bottom of the slider */
     left: 0;
     right: 0;
-    width: auto;
-    transform: translateX(-50); /* Center the dots container */
+    width: 100%; /* Take full width to allow centering */
+    transform: translateX(0); /* Reset any previous translations */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centers the dots */
     list-style: none;
     padding: 0;
-    width:100%
-  }
+  }  
   
   .slick-dots li button:before {
-    font-size: 12px; /* Size of the dots */
-    color: rgba(0, 0, 0, 0.75); /* Color of the dots */
+    font-size: 12px; /* Size of dots */
+    color: rgba(0, 0, 0, 0.75); /* Color of dots */
   }
   
   .slick-dots li.slick-active button:before {
-    color: black; /* Color of the active dot */
+    color: black; /* Active dot color */
   }
-  
+
   .slide h2 {
-    margin: 0.5em 0; /* Space above and below the title */
+    margin: -0.5em; /* Space above and below the title */
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .slide p {
-    margin: 1.5em 0; /* Space above and below the paragraph */
+    margin: 2em; /* Space above and below the paragraph */
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .slide a {
-    background-color: #4CAF50; /* Color for your link/button */
+    display: inline-block; 
+    margin-top: -0.5rem; 
+    padding: 10px 10px;
+    background-color: #4CAF50; 
     color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none; /* Remove underline from links */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    width: fit-content;
+    border-radius: 4px; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease; 
+    width: fit-content; 
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .slide a:hover {
     background-color: #367c39; /* Darker shade on hover */
   }
+
+  .slick-track {
+    margin: 0 auto; /* Override any default margin */
+  }
+  
+  .slick-slide > div {
+    margin: 0 auto; /* Center-align the direct child div of slick-slide */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-links-container {
+    display: flex;
+    justify-content: center; /* Center the images in the container */
+    gap: 20px; /* Creates space between the images */
+    padding: 20px 0; /* Adds padding above and below the image container */
+  }
+  
+  .image-links-container a {
+    display: block;
+    width: calc(50% - 10px); /* Assumes a gap of 20px, so each link takes up half the container width minus half the gap */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow to images for consistency with slider */
+  }
+  
+  .image-links-container img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: if you want rounded corners like the slider */
+  }
+  
+  
