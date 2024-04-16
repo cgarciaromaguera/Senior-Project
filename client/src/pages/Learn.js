@@ -61,7 +61,7 @@ class Learn extends React.Component {
     return (
       <div className='learn'>
         <div className='header'>
-          <img src={logo} alt="Logo" className="logo-home" />
+          <img src={logo} alt="Logo" className="logo" />
           <Link to="/account" style={{ textDecoration: 'none' }}> 
           <h10 className="account">Account</h10>
           </Link>
