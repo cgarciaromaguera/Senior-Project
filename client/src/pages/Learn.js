@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick.css"; // Default styling
 import "slick-carousel/slick/slick-theme.css"; // Theme styling
 import './Learn.css';
 import logo from './logo2.png';
+import stockWork from './stockWork.jpg';
+import investingWork from './investingWork.png';
 import { Link } from 'react-router-dom';
 
 class Learn extends React.Component {
@@ -107,10 +109,10 @@ class Learn extends React.Component {
         </div>
         <div className="image-links-container">
           <a href="https://www.thebalancemoney.com" target="_blank" rel="noopener noreferrer">
-            <img src= " ./stockWork.jpg" alt="How Stocks Work" />
+            <img src= {stockWork} alt="How Stocks Work" />
           </a>
           <a href="https://www.thebalancemoney.com" target="_blank" rel="noopener noreferrer">
-            <img src= " ./investingWork.png" alt="How Does Income Investing Work?" />
+            <img src= {investingWork} alt="How Does Income Investing Work?" />
           </a>
       </div>
       </div>

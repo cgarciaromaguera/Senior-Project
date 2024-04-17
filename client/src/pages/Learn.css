@@ -192,7 +192,7 @@
   }
   
   .slick-slide > div {
-    margin: 0 auto; /* Center-align the direct child div of slick-slide */
+    margin: 0 auto; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,21 +200,22 @@
 
   .image-links-container {
     display: flex;
-    justify-content: center; /* Center the images in the container */
-    gap: 20px; /* Creates space between the images */
-    padding: 20px 0; /* Adds padding above and below the image container */
+    justify-content: center; /* Center the images container */
+    gap: 4rem; /* Space between the images */
+    margin-top: 2rem; /* Space between slider and image container */
   }
   
   .image-links-container a {
-    display: block;
-    width: calc(50% - 10px); /* Assumes a gap of 20px, so each link takes up half the container width minus half the gap */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow to images for consistency with slider */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to match definition boxes */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensures the border-radius applies to images */
   }
   
   .image-links-container img {
-    max-width: 100%;
+    width: 100%; /* Full width of the anchor tag */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: if you want rounded corners like the slider */
+    max-width: 550px; /* Maximum width of the images, you can adjust this value */
+    display: block; 
+    margin: 0 auto; 
   }
-  
   
