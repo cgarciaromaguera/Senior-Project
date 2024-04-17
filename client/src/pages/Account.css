@@ -42,8 +42,8 @@
     margin-left: -10px;
     width: 200px; /* Adjust width and height as needed */
     height: 40px;
-    background-color: rgb(225, 252, 225);
-    color: black;
+    background-color: #4CAF50;
+    color: white;
     border-style: double;
     
   }
