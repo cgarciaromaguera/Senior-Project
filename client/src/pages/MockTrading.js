@@ -60,7 +60,7 @@ const MockTrading = () => {
             </div>
 
             <h2 style={{textAlign: 'center'}}>Owned Stocks</h2>
-            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
+            <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
                 {owned && owned.map((stock) => {
                         return stock
                     }
