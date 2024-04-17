@@ -36,7 +36,17 @@
     margin-top: 35px;
     margin-left: 350px;
   }
-  
+
+  .logoutButton {
+    margin-top: 30px;
+    margin-left: -10px;
+    width: 200px; /* Adjust width and height as needed */
+    height: 40px;
+    background-color: rgb(214, 252, 214);
+    color: black;
+    border-style: double;
+    
+  }
   
   
   .home-header:hover {

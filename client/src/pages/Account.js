@@ -49,7 +49,7 @@ const Account = () => {
                             <h1>History</h1>
                             <h1>Notifications</h1>
                             <h1>Privacy</h1>
-                            <button onClick={handleLogout}>Log Out</button>
+                            <button className= 'logoutButton' onClick={handleLogout}>Log Out</button>
                         </div>
                     </div>
                 </div>
