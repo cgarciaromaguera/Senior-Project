@@ -1,221 +1,219 @@
 /* LearnTab.css */
 .learn {
-    display: block;
-    margin: 8px;
-  }
-  
-  /*HERE*/
-  .searchbar {
-    position: absolute;
-    left: 350px; 
-    top: 234px;
-  }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo {
-    width: 80px;
-    height: 50px;
-    margin-left: 1.5rem;
-    top: 0px;
-  }
-  
-  .home-header:hover {
-    font-weight: bold;
-  }
-  .mocktrade-header:hover {
-    font-weight: bold;
-  }
-  .learn-header:hover {
-    font-weight: bold;
-  }
-  .account:hover {
-    font-weight: bold;
-  }
-  
-  .account {
-    margin-right: 3rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 58px;
-    color: #000000;
-  }
-  
-  .navigationBar {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    font-family: sans-serif;
-    justify-content: space-start;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #D5EFD3 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  /* Style for individual navigation links */
-  .nav-link {
-    margin-left: 3rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 24px;
-    color: #000000;
-    cursor: pointer;
-  }
-  
-  /* Underline the active nav-link, this should be applied to the current active tab */
-  .nav-link.active {
-    text-decoration: underline;
-  }
+  display: block;
+  margin: 8px;
+}
 
-   /* Style for the definitions section */
-   .definitions-container {
-    display: flex;
-    justify-content: space-evenly; /* This will distribute the boxes evenly */
-    align-items: flex-start; /* Aligns items at the top if they are of different heights */
-    margin: 2rem auto;
-    max-width: 80%;
-    flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
-  }
-  
-  .definition-box {
-    background-color: white; /* Match slider box background color */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Match slider box shadow */
-    border-radius: 8px;
-    padding: 2rem;
-    flex-basis: calc(33.333% - 2rem); /* Allocate space for 3 boxes, subtracting the margin */
-    margin: 1rem 1rem; 
-    box-sizing: border-box; /* Include padding and border in the box's width */
-    min-height: 150px; /* Minimum height to ensure boxes are the same size */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center the content vertically */
-    align-items: center; /* Center the content horizontally */
-  }
-  
-  .definition-box h3 {
-    margin-bottom: 0.5rem;
-  }
-  
-  .definition-box p {
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  .learn-content-slider {
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    margin: 2rem auto; 
-    max-width: 80%; 
-  }
+/*HERE*/
+.searchbar {
+  position: absolute;
+  left: 350px; 
+  top: 234px;
+}
 
-  .slick-slider {
-    margin: 0 auto;
-  }
-  
-  .slick-list {
-    overflow: visible; /* Make dots visible when they are outside the slick-list */
-  }
-  
-  .slide {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    padding: 2rem; /* Padding inside each slide */
-    height: auto;
-    box-sizing: border-box; /* Include padding and border in the element's width */
-  }
-  
-  /* Styling for dots provided by react-slick */
-  .slick-dots {
-    position: absolute;
-    bottom: -10px; /* Adjust distance from bottom of the slider */
-    left: 0;
-    right: 0;
-    width: 100%; /* Take full width to allow centering */
-    transform: translateX(0); /* Reset any previous translations */
-    display: flex;
-    justify-content: center; /* Centers the dots */
-    list-style: none;
-    padding: 0;
-  }  
-  
-  .slick-dots li button:before {
-    font-size: 12px; /* Size of dots */
-    color: rgba(0, 0, 0, 0.75); /* Color of dots */
-  }
-  
-  .slick-dots li.slick-active button:before {
-    color: black; /* Active dot color */
-  }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .slide h2 {
-    margin: -0.5em; /* Space above and below the title */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .slide p {
-    margin: 2em; /* Space above and below the paragraph */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .slide a {
-    display: inline-block; 
-    margin-top: -0.5rem; 
-    padding: 10px 10px;
-    background-color: #4CAF50; 
-    color: white;
-    border-radius: 4px; 
-    text-decoration: none; 
-    transition: background-color 0.3s ease; 
-    width: fit-content; 
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .slide a:hover {
-    background-color: #367c39; /* Darker shade on hover */
-  }
+.logo {
+  width: 80px;
+  height: 50px;
+  margin-left: 1.5rem;
+  top: 0px;
+}
 
-  .slick-track {
-    margin: 0 auto; /* Override any default margin */
-  }
-  
-  .slick-slide > div {
-    margin: 0 auto; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.home-header:hover {
+  font-weight: bold;
+}
+.mocktrade-header:hover {
+  font-weight: bold;
+}
+.learn-header:hover {
+  font-weight: bold;
+}
+.account:hover {
+  font-weight: bold;
+}
 
-  .image-links-container {
-    display: flex;
-    justify-content: center; /* Center the images container */
-    gap: 4rem; /* Space between the images */
-    margin-top: 2rem; /* Space between slider and image container */
-  }
-  
-  .image-links-container a {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to match definition boxes */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Ensures the border-radius applies to images */
-  }
-  
-  .image-links-container img {
-    width: 100%; /* Full width of the anchor tag */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 550px; /* Maximum width of the images, you can adjust this value */
-    display: block; 
-    margin: 0 auto; 
-  }
-  
+.account {
+  margin-right: 3rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 58px;
+  color: #000000;
+}
+
+.navigationBar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-start;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #D5EFD3 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Style for individual navigation links */
+.nav-link {
+  margin-left: 3rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #000000;
+  cursor: pointer;
+}
+
+/* Underline the active nav-link, this should be applied to the current active tab */
+.nav-link.active {
+  text-decoration: underline;
+}
+
+ /* Style for the definitions section */
+ .definitions-container {
+  display: flex;
+  justify-content: space-evenly; /* This will distribute the boxes evenly */
+  align-items: flex-start; /* Aligns items at the top if they are of different heights */
+  margin: 2rem auto;
+  max-width: 80%;
+  flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
+}
+
+.definition-box {
+  background-color: white; /* Match slider box background color */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Match slider box shadow */
+  border-radius: 8px;
+  padding: 2rem;
+  flex-basis: calc(33.333% - 2rem); /* Allocate space for 3 boxes, subtracting the margin */
+  margin: 1rem 1rem; 
+  box-sizing: border-box; /* Include padding and border in the box's width */
+  min-height: 150px; /* Minimum height to ensure boxes are the same size */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+}
+
+.definition-box h3 {
+  margin-bottom: 0.5rem;
+}
+
+.definition-box p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.learn-content-slider {
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  margin: 2rem auto; 
+  max-width: 80%; 
+}
+
+.slick-slider {
+  margin: 0 auto;
+}
+
+.slick-list {
+  overflow: visible; /* Make dots visible when they are outside the slick-list */
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  padding: 2rem; /* Padding inside each slide */
+  height: auto;
+  box-sizing: border-box; /* Include padding and border in the element's width */
+}
+
+/* Styling for dots provided by react-slick */
+.slick-dots {
+  position: absolute;
+  bottom: -10px; /* Adjust distance from bottom of the slider */
+  left: 0;
+  right: 0;
+  width: 100%; /* Take full width to allow centering */
+  transform: translateX(0); /* Reset any previous translations */
+  display: flex;
+  justify-content: center; /* Centers the dots */
+  list-style: none;
+  padding: 0;
+}  
+
+.slick-dots li button:before {
+  font-size: 12px; /* Size of dots */
+  color: rgba(0, 0, 0, 0.75); /* Color of dots */
+}
+
+.slick-dots li.slick-active button:before {
+  color: black; /* Active dot color */
+}
+
+.slide h2 {
+  margin: -0.5em; /* Space above and below the title */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slide p {
+  margin: 2em; /* Space above and below the paragraph */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slide a {
+  display: inline-block; 
+  margin-top: -0.5rem; 
+  padding: 10px 10px;
+  background-color: #4CAF50; 
+  color: white;
+  border-radius: 4px; 
+  text-decoration: none; 
+  transition: background-color 0.3s ease; 
+  width: fit-content; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slide a:hover {
+  background-color: #367c39; /* Darker shade on hover */
+}
+
+.slick-track {
+  margin: 0 auto; /* Override any default margin */
+}
+
+.slick-slide > div {
+  margin: 0 auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-links-container {
+  display: flex;
+  justify-content: center; /* Center the images container */
+  gap: 4rem; /* Space between the images */
+  margin-top: 2rem; /* Space between slider and image container */
+}
+
+.image-links-container a {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to match definition boxes */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Ensures the border-radius applies to images */
+}
+
+.image-links-container img {
+  width: 100%; /* Full width of the anchor tag */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 550px; /* Maximum width of the images, you can adjust this value */
+  display: block; 
+  margin: 0 auto; 
+}
