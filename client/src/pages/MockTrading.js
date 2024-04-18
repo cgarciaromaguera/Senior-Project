@@ -65,7 +65,7 @@ const MockTrading = () => {
                     })}
                 </div>
             :
-            <p style={{textAlign: 'center', fontSize: '24px'}}>Loading stocks...</p>
+            <p style={{textAlign: 'center', fontSize: '24px'}}>Loading...</p>
             }
         </div>
     );
