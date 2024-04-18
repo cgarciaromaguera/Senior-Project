@@ -35,10 +35,6 @@ const MockTrading = () => {
         getCurrentStocks()
     }, [user, stocks])
 
-    const ownedStockGrid = {
-        display: 'flex'
-    }
-
     return (
         <div className='mocktrading'>
             <div className='header'>
@@ -59,14 +55,18 @@ const MockTrading = () => {
                 </Link>
             </div>
 
-            <h2 style={{textAlign: 'center'}}>Owned Stocks</h2>
-            <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
-                {owned && owned.map((stock) => {
+            <h2 style={{textAlign: 'center'}}>Your Stocks</h2>
+            {console.log(owned)}
+            {owned.length != 0
+            ?
+                <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
+                    {owned.map((stock) => {
                         return stock
-                    }
-                )}
-            </div>
-
+                    })}
+                </div>
+            :
+            <p style={{textAlign: 'center', fontSize: '24px'}}>Loading stocks...</p>
+            }
         </div>
     );
 };

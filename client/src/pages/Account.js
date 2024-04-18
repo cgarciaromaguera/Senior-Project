@@ -39,16 +39,16 @@ const Account = () => {
                 <div className='profileContainer'>
                     <div className="profilePicContainer">
                         <img src={profilePic} alt="User Profile Picture" className="profilePic" />
-                        <h3 className='infoBox'>Username: {user.username}</h3> 
-                        <h3 className='infoBox'>Email: {user.email}</h3> 
-                        <h4 className='infoBox'>Balance: ${money}</h4>           
+                        <p className='infoBox' style={{fontSize: '18px'}}><strong>Username:</strong> {user.username}</p> 
+                        <p className='infoBox' style={{fontSize: '18px'}}><strong>Email:</strong> {user.email}</p> 
+                        <p className='infoBox' style={{fontSize: '18px'}}><strong>Balance:</strong> ${money}</p> 
                     </div> 
                     <div className='accountInfo'>
                         <div className='accountBox'>
-                            <h1>Account Settings</h1>
-                            <h1>History</h1>
-                            <h1>Notifications</h1>
-                            <h1>Privacy</h1>
+                            <h3>Account Settings</h3>
+                            <h3>History</h3>
+                            <h3>Notifications</h3>
+                            <h3>Privacy</h3>
                             <button className= 'logoutButton' onClick={handleLogout}>Log Out</button>
                         </div>
                     </div>

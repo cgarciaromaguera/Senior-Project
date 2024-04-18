@@ -162,19 +162,20 @@ class Home extends React.Component {
               type="reset" disabled={this.state.loading} onClick={this.handleReset.bind(this)}>Reset</button>   
           </form>
 
-          <div>
-            <h3>Your Balance: ${this.state.money}</h3>
+          <div>        
+            <p style={{marginLeft: '10px', fontSize: '18px'}}><strong>Your Balance:</strong> ${this.state.money}</p>
+              
             {this.state.searching
             ? this.state.loading
-              ? <h1>Loading...</h1>
+              ? <p style={{textAlign: 'center', fontSize: '24px'}}>Loading stocks...</p>
               : <div>
                 Searching for: "{this.state.lastSearch}"
                   <InfiniteScroll
                     dataLength={this.state.stocks.length}
                     next={this.fetchMoreSearched}
                     hasMore={this.state.stocks.length < this.state.searched.length}
-                    loader={<h1>Loading...</h1>}
-                    height={600}>
+                    loader={<p style={{textAlign: 'center', fontSize: '24px'}}>Loading stocks...</p>}
+                    height={700}>
                       <div className="stock-grid">
                         {this.state.stocks.map((row) => {
                           return (
@@ -187,13 +188,13 @@ class Home extends React.Component {
                   </InfiniteScroll>
                 </div>
             : this.state.loading
-              ? <h1>Loading...</h1>
+              ? <p style={{textAlign: 'center', fontSize: '24px'}}>Loading stocks...</p>
               : <InfiniteScroll
                   dataLength={this.state.stocks.length}
                   next={this.fetchMoreData}
                   hasMore={this.state.stocks.length < this.state.tickers.length}
-                  loader={<h1>Loading...</h1>}
-                  height={600}>
+                  loader={<p style={{textAlign: 'center', fontSize: '24px'}}>Loading stocks...</p>}
+                  height={700}>
                     <div className="stock-grid">
                       {this.state.stocks.map((row) => {
                         return (
