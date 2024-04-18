@@ -1,13 +1,3 @@
-/* LearnTab.css */
-* {
-  box-sizing: border-box; 
-}
-
-body {
-  margin: 0;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
-}
-
 .learn {
   display: block;
   margin: 8px;
@@ -121,6 +111,7 @@ body {
   position: relative;
   margin: 2rem auto; 
   max-width: 80%; 
+  overflow-x: hidden;
 }
 
 .slick-slider {
@@ -211,6 +202,7 @@ body {
   justify-content: center; /* Center the images container */
   gap: 4rem; /* Space between the images */
   margin-top: 2rem; /* Space between slider and image container */
+  overflow-x: hidden;
 }
 
 .image-links-container a {
