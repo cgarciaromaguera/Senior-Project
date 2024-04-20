@@ -7,7 +7,6 @@ const createToken = (_id) => {
 
 // login user
 const loginUser = async (req, res) => {
-    console.log(req.body)
     const {username, password} = req.body
 
     try {
@@ -86,9 +85,6 @@ const sellStock = async (req, res) => {
             { new: true }
         )
     }
-
-    console.log(user.money)
-    console.log(user.stocks)
 
     res.status(200).json({ money: user.money, stocks: user.stocks })
 }
